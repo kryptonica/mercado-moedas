@@ -43,6 +43,7 @@ class Login_c extends MY_Controller {
         }
     }
 
+
     public function logout() {
         $this->session->sess_destroy();
         redirect('/login');

@@ -121,6 +121,20 @@ html, body{
   padding: 50px 115px 30px 115px;
 }
 
+#container-form-cadastro{
+  position: absolute;
+  margin: auto;
+  top: 15%;
+  left: 50%;
+  transform:  translate(-50%,-15%);
+  text-align: center;
+}
+
+.form-cadastro{
+  background-color: #FFFFFF;
+  padding: 50px 115px 30px 115px;
+}
+
 @media only screen and (max-width: 768px) {
   .form-login {
       padding-left: 5px !important;
@@ -129,12 +143,12 @@ html, body{
 
 }
 
-#container-form-login input{
+#container-form-login input, #container-form-cadastro input{
   border-radius: 35px;
   margin-bottom: 23px;
 }
 
-#container-form-login button[type=submit]{
+#container-form-login button[type=submit], #container-form-cadastro button[type=submit]{
   margin-top: 5px;
   margin-bottom: 20px;
   width: 100px;
@@ -142,7 +156,7 @@ html, body{
   border: 1px solid #5cb85c;
 }
 
-#container-form-login a{
+#container-form-login a, #container-form-cadastro a{
   cursor: pointer;
   color: #699cfc;
 }

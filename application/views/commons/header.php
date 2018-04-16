@@ -21,7 +21,8 @@
                     <div class="navbar-header">
                         <a class="navbar-brand" href="#">Kriptonica</a>
                     </div>
-
+                    
+                    <?php if ($this->session->logado): ?>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
@@ -30,7 +31,6 @@
                                 <input type="text" class="form-control search" placeholder="Search">
                             </div>
                         </form>
-                        <?php if ($this->session->logado): ?>
                             <div class="navbar-right">
                                 <span class="fa fa-user-circle" style="font-size: 30px;    padding:  10px;"></span>
                                 <ul class="nav navbar-nav">

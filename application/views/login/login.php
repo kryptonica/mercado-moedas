@@ -20,7 +20,7 @@
                             <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                         </div>
                         <button type="submit" class="btn btn-primary">Entrar</button><br>
-                        <a>Criar minha conta</a>
+                        <a href="<?= base_url("cadastro"); ?>">Criar minha conta</a>
                     </form>
                     <div>
                     </div>
