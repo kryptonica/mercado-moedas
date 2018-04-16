@@ -13,17 +13,12 @@ class Exemplo_c extends MY_Controller {
         $this->load->model('exemplo');
     }
 
-    public function index() {
-        $this->load->view("commons/header");
-        $this->load->view("home");
-        $this->load->view("commons/footer");
-    }
+//    public function index() {
+//        $this->load->view("commons/header");
+//        $this->load->view("home");
+//        $this->load->view("commons/footer");
+//    }
     
-    public function login() {
-        $this->load->view("commons/header");
-        $this->load->view("login");
-        $this->load->view("commons/footer");
-    }
 
     /*
         No padrão que a gente vai usar cada tabela tem um model individual
