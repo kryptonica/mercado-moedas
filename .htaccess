@@ -4,9 +4,3 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ index.php/$1 [L]
 </IfModule>
-
-<FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
-    <IfModule mod_headers.c>
-        Header set Access-Control-Allow-Origin "http://skin.cdn.com"
-    </IfModule>
-</FilesMatch>
