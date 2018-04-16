@@ -1,3 +1,7 @@
+.dropdown .dropdown-toggle span {
+  margin-left: 10px;
+}
+
 body {
   font-family: "Raleway Light";
   background-color: #EBEBEB;
@@ -76,7 +80,7 @@ footer ul {
 }
 
 
-/* 
+/*
     Created on : 15/04/2018, 19:35:40
     Author     : joao
     View: login.php
@@ -167,4 +171,3 @@ html, body{
   margin-bottom: 25px;
   height: 110px;
 }
-
