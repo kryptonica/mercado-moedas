@@ -14,7 +14,15 @@ class Exemplo_c extends MY_Controller {
     }
 
     public function index() {
+        $this->load->view("commons/header");
         $this->load->view("home");
+        $this->load->view("commons/footer");
+    }
+    
+    public function login() {
+        $this->load->view("commons/header");
+        $this->load->view("login");
+        $this->load->view("commons/footer");
     }
 
     /*
