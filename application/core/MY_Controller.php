@@ -6,12 +6,11 @@ class MY_Controller extends CI_Controller {
         parent::__construct();
     }
 
-//    public function carregar_pagina($pagina, $dados = array()) {
-//        $data['conteudo'] = $this->load->view($pagina, $dados, true);
-//        $this->load->view('comuns/topo', $dados);
-//        $this->load->view('comuns/layout', $data);
-//        $this->load->view('comuns/rodape');
-//    }
+    public function carregar_pagina($pagina, $dados = array()) {
+        $this->load->view("commons/header", $dados);
+        $this->load->view($pagina, $dados);
+        $this->load->view("commons/footer");
+    }
 
     protected function initPagination($url, $total) {
         $config = array(
