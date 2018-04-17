@@ -24,6 +24,11 @@
                             <div class="form-group">
                                 <input type="password" class="form-control" name="senha" id="senha_cadastro" placeholder="Senha">
                             </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="confirmar-senha" id="confirmar_senha" placeholder="Confirmar Senha">
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Enviar</button><br>
                         </form>
                     <div>

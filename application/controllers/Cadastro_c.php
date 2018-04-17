@@ -28,6 +28,7 @@ class Cadastro_c extends MY_Controller {
         $this->form_validation->set_rules('email', 'E-mail', 'required|valid_email');
         $this->form_validation->set_rules('nascimento', 'Data de Nascimento', 'required');
         $this->form_validation->set_rules('senha', 'Senha', 'required|min_length[8]|max_length[12]');
+        $this->form_validation->set_rules('confirmar-senha', 'Confirmar Senha', 'required|matches[senha]');
 
         if ($this->form_validation->run() === TRUE) { //VALIDA FORMULÁRIO
             if ($this->cadastro->validar_email($dados['email'])) {
