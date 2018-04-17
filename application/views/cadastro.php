@@ -6,7 +6,7 @@
             <div id="secao-cinza"  class="col-xs-12"></div>
             <div id="container-form-cadastro"  class="col-xs-12">
                 <div class="row">
-                    <div class="msg-login col-md-6 col-md-offset-3 col-xs-12">
+                    <div class="msg-cadastro col-md-6 col-md-offset-3 col-xs-12">
                         <h2>Cadastro</h2>
                     </div>
                     <div class="col-md-4 col-md-offset-4 col-xs-12 form-cadastro">
