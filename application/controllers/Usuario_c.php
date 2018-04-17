@@ -13,16 +13,42 @@ class Usuario_c extends MY_Controller {
         $this->load->model('usuario');
     }
 
-    public function inserir() {//Para fins de teste
-        $dados = array(
-            "nome" => "Administrador",
-            "email" => "teste@admin.com",
-            "dataNascimento" => "2000-12-02",
-            "login" => "admin",
-            "senha" => "admin",
-        );
-        $this->usuario->inserir_crypt_senha($dados);
-        echo "foi";
+    public function index() {
+        
+    }
+
+    public function criar() {
+        $this->carregar_pagina('usuario/cadastro');
+    }
+
+    public function inserir() {
+        if ($this->form_validation->run() === TRUE) { //Regras de validação estão em config/form_validation pq são muitas
+            $dados = $this->input->post(['nome', 'email', 'senha']); //pega tudo de uma vez
+            $dados["dataNascimento"] = $this->input->post('nascimento');
+            if ($this->validar_data_nascimento($dados['dataNascimento'])) {
+                $this->usuario->inserir_crypt_senha($dados);
+                adicionar_alerta("success", "Cadastro concluído com sucesso!");
+                redirect("login");
+            } else {
+                adicionar_alerta("danger", "O usuário deve ser maior de idade!");
+                redirect("cadastro");
+            }
+        } else {
+            adicionar_alerta('danger', validation_errors());
+            redirect("cadastro");
+        }
+    }
+
+    private function validar_data_nascimento($data) {//Os models só devem conter métodos que fazem acesso ao banco de dados
+        $hoje = date("Y-m-d");
+        $diff = date_diff(date_create($data), date_create($hoje));
+        $idade = $diff->format('%y');
+
+        if ($idade >= 18) {
+            return true;
+        }
+
+        return false;
     }
 
 }

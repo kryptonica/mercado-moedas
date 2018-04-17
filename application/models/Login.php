@@ -16,15 +16,7 @@ class Login extends CI_Model {
         if (!$hash) {
             return false;
         }
-        return $this->verificar_password_hash($senha, $hash->senha);
+        return password_verify($senha, $hash->senha);
     }
-
-    private function verificar_password_hash($password, $hash) {
-        return password_verify($password, $hash);
-    }
-
-    public function hash_password($password) {
-        return password_hash($password, PASSWORD_BCRYPT);
-    }
-
+    
 }

@@ -21,29 +21,38 @@
                     <div class="navbar-header">
                         <a class="navbar-brand" href="<?= base_url("/"); ?>">Kriptonica</a>
                     </div>
-                    
-                    <?php if ($this->session->logado): ?>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                        <form class="navbar-form navbar-left">
-                            <div class="form-group">
-                                <input type="text" class="form-control search" placeholder="Search">
-                            </div>
-                        </form>
+                    <?php if ($this->session->logado): ?>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                            <form class="navbar-form navbar-left">
+                                <div class="form-group">
+                                    <input type="text" class="form-control search" placeholder="Search">
+                                </div>
+                            </form>
                             <div class="navbar-right">
                                 <span class="fa fa-user-circle" style="font-size: 30px;    padding:  10px;"></span>
                                 <ul class="nav navbar-nav">
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->session->nome ?><span class="fa fa-chevron-down"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="<?= base_url("login_c/logout");?>"><span class="fa fa-sign-out-alt"></span>Sair</a></li>
+                                            <li><a href=""><span class="fa fa-user-circle"></span> Meu perfil</a></li>
+                                            <li><a href="<?= base_url("login_c/logout"); ?>"><span class="fa fa-sign-out"></span> Sair</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
-                        <?php endif; ?>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
+                        <?php else: ?>
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <div class="navbar-right">
+                                    <ul class="nav navbar-nav">
+                                        <li class="<?= ocultar(["usuario_c"])?>"><a href="<?= base_url("cadastro"); ?>"><span class="fa fa-user-plus"></span> Cadastre-se</a></li>
+                                        <li class="<?= ocultar(["login_c"])?>"><a href="<?= base_url("login"); ?>"><span class="fa fa-sign-in"></span> Entre</a></li>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
             </nav>
         </header>

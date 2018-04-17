@@ -6,11 +6,10 @@
  * and open the template in the editor.
  */
 
-class Mercado_c extends MY_Controller {
+class Home_c extends MY_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('usuario');
     }
 
     public function index() {

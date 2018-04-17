@@ -1,6 +1,5 @@
 <div class="container-fluid fill">
     <div class='row'>
-
             <div id="secao-verde" class="col-xs-12">
             </div>
             <div id="secao-cinza"  class="col-xs-12"></div>
@@ -11,7 +10,7 @@
                     </div>
                     <div class="col-md-4 col-md-offset-4 col-xs-12 form-cadastro">
                     <?php $this->view('commons/alertas'); ?>
-                        <form method="post" action="<?= base_url("cadastro_c/cadastrar"); ?>">
+                        <form method="post" action="<?= base_url("usuario_c/inserir"); ?>">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="nome" id="nome_cadastro" placeholder="Nome">
                             </div>
