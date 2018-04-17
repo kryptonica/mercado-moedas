@@ -1,4 +1,7 @@
-
+<?php if (!$this->session->logado): 
+  redirect('login');
+endif; 
+  ?>
     <div class="container">
       <div class="row">
         <div class="col-md-12">

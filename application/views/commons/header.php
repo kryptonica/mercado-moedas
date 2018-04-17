@@ -19,7 +19,7 @@
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">Kriptonica</a>
+                        <a class="navbar-brand" href="<?= base_url("/"); ?>">Kriptonica</a>
                     </div>
                     
                     <?php if ($this->session->logado): ?>

@@ -16,7 +16,7 @@ class Login_c extends MY_Controller {
 
     public function index() {
         if ($this->session->logado) {
-            redirect("/");
+            redirect("home");
         } else {
             $this->carregar_pagina("login/login");
         }
@@ -32,7 +32,7 @@ class Login_c extends MY_Controller {
             if ($this->login->resolve_user_login($email, $senha)) {
                 $usuario = $this->usuario->buscar_row(["where" => ["email" => $email]]); //Busca dados do usuario
                 $this->session->set_userdata(['logado' => TRUE, "usuario_id" => $usuario->id, "nome" => $usuario->nome]); //Seta dados na sessão
-                redirect("/");
+                redirect("home");
             } else {
                 adicionar_alerta("danger", "Credenciais inválidas!");
                 redirect("login");
