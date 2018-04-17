@@ -47,12 +47,12 @@
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <div class="navbar-right">
                                     <ul class="nav navbar-nav">
-                                        <li class="<?= ocultar(["usuario_c"])?>"><a href="<?= base_url("cadastro"); ?>"><span class="fa fa-user-plus"></span> Cadastre-se</a></li>
-                                        <li class="<?= ocultar(["login_c"])?>"><a href="<?= base_url("login"); ?>"><span class="fa fa-sign-in"></span> Entre</a></li>
+                                        <li class="<?= ocultar(["usuario_c"]) ?>"><a href="<?= base_url("cadastro"); ?>"><span class="fa fa-user-plus"></span> Cadastre-se</a></li>
+                                        <li class="<?= ocultar(["login_c"]) ?>"><a href="<?= base_url("login"); ?>"><span class="fa fa-sign-in"></span> Entre</a></li>
                                     </ul>
                                 </div>
-                            <?php endif; ?>
-                        </div><!-- /.navbar-collapse -->
+                            </div><!-- /.navbar-collapse -->
+                        <?php endif; ?>
                     </div><!-- /.container-fluid -->
             </nav>
         </header>

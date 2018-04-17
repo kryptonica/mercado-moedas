@@ -22,8 +22,8 @@ class Usuario_c extends MY_Controller {
     }
 
     public function inserir() {
-        if ($this->form_validation->run() === TRUE) { //Regras de validação estão em config/form_validation pq são muitas
-            $dados = $this->input->post(['nome', 'email', 'senha']); //pega tudo de uma vez
+        if ($this->form_validation->run() === TRUE) { //Regras de validação estão em config/form_validation
+            $dados = $this->input->post(['nome', 'email', 'senha']);
             $dados["dataNascimento"] = $this->input->post('nascimento');
             if ($this->validar_data_nascimento($dados['dataNascimento'])) {
                 $this->usuario->inserir_crypt_senha($dados);

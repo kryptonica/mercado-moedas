@@ -1,6 +1,18 @@
 <?php
 
 $config = array(
+    'login_c/autenticar' => array(
+        array(
+            'field' => 'senha',
+            'label' => 'Senha',
+            'rules' => 'required',
+        ),
+        array(
+            'field' => 'email',
+            'label' => 'E-mail',
+            'rules' => 'required|valid_email',
+        ),
+    ),
     'usuario_c/inserir' => array(
         array(
             'field' => 'nome',

@@ -4,6 +4,7 @@ class MY_Controller extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->library("auth"); //faz o controle de permissões -> classe na pasta libraries/auth.php
     }
 
     public function carregar_pagina($pagina, $dados = array()) {
