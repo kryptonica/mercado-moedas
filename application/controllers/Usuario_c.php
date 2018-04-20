@@ -51,4 +51,9 @@ class Usuario_c extends MY_Controller {
         return false;
     }
 
+    public function visualizar_perfil($usuario_id) {
+        $dados["usuario"] = $this->usuario->buscar_row(["where" => ["id" => $usuario_id]]);
+        $this->carregar_pagina("usuario/perfil", $dados);//dentro da view, cada posição do array $dados pode ser tratada como uma variável individual
+    }
+
 }
