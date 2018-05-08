@@ -29,6 +29,7 @@
                                 </div>
                             </form>
                             <div class="navbar-right">
+                                <a class="meus_anuncios_header" href="<?= base_url("meusanuncios"); ?>">Meus Anuncios</a>
                                 <span class="fa fa-user-circle" style="font-size: 30px;    padding:  10px;"></span>
                                 <ul class="nav navbar-nav">
                                     <li class="dropdown">

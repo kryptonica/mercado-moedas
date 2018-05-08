@@ -40,4 +40,58 @@ $config = array(
             'rules' => 'required|matches[senha]',
         ),
     ),
+    'anuncio_c/confirmar_atualizacao' => array(
+        array(
+            'field' => 'titulo',
+            'label' => 'Nome',
+            'rules' => 'required',
+        ),
+        array(
+            'field' => 'descricao',
+            'label' => 'Descrição',
+            'rules' => 'required',
+        ),
+        array(
+            'field' => 'preco',
+            'label' => 'Preço',
+            'rules' => 'required',
+        ),
+        array(
+            'field' => 'quantidade',
+            'label' => 'Quantidade',
+            'rules' => 'required',
+        ),
+        array(
+            'field' => 'tipo_moeda',
+            'label' => 'Tipo de moeda',
+            'rules' => 'required',
+        ),
+    ),
+    'anuncio_c/confirmar_cadastro' => array(
+        array(
+            'field' => 'titulo',
+            'label' => 'Nome',
+            'rules' => 'required',
+        ),
+        array(
+            'field' => 'descricao',
+            'label' => 'Descrição',
+            'rules' => 'required',
+        ),
+        array(
+            'field' => 'preco',
+            'label' => 'Preço',
+            'rules' => 'required',
+        ),
+        array(
+            'field' => 'quantidade',
+            'label' => 'Quantidade',
+            'rules' => 'required',
+        ),
+        array(
+            'field' => 'tipo_moeda',
+            'label' => 'Tipo de moeda',
+            'rules' => 'required',
+        ),
+    )
 );
