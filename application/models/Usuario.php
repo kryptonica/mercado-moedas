@@ -12,7 +12,7 @@ class Usuario extends MY_Model {
 
     public function inserir_crypt_senha($dados) {
         $this->load->model('login');
-        $dados['senha'] = $this->login->hash_password($dados['senha']);
+        $dados['senha'] = password_hash($dados['senha'], PASSWORD_BCRYPT);
         $this->db->insert($this->tabela, $dados);
         $id = $this->db->insert_id();
         return $id;

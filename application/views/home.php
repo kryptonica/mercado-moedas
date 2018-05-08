@@ -1,4 +1,7 @@
-
+<!--<?//php if (!$this->session->logado): 
+  redirect('login'); //Esses redirects devem ser feitos nos controllers. Lembra que a gente ta trabalhando com MVC e não php puro.
+endif; 
+  ?>-->
     <div class="container">
       <div class="row">
         <div class="col-md-12">
