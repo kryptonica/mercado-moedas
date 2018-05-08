@@ -212,6 +212,7 @@ hr {
     padding-left: 15px;
 }
 
+<<<<<<< HEAD
 .meus_anuncios_header{
     padding: 15px 15px;
     float: left;
@@ -222,4 +223,8 @@ hr {
  
     margin-top: 20px;
     
+=======
+textarea {
+    resize: none;
+>>>>>>> c4b530ae7c957a079c80ab097bca81e468ddd776
 }

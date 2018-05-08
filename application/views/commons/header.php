@@ -35,7 +35,8 @@
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->session->nome ?><span class="fa fa-chevron-down"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="<?= base_url("perfil/" . $this->session->usuario_id); ?>"><span class="fa fa-user-circle"></span> Meu perfil</a></li>
+                                            <li><a href="<?= base_url("perfil/" . $this->session->usuario_id); ?>"><span class="fa fa-user-circle"></span> Perfil</a></li>
+                                            <li><a href="<?= base_url("editar"); ?>"><span class="fa fa-cog"></span> Editar perfil</a></li>
                                             <li><a href="<?= base_url("login_c/logout"); ?>"><span class="fa fa-sign-out"></span> Sair</a></li>
                                         </ul>
                                     </li>

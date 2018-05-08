@@ -53,7 +53,43 @@ class Usuario_c extends MY_Controller {
 
     public function visualizar_perfil($usuario_id) {
         $dados["usuario"] = $this->usuario->buscar_row(["where" => ["id" => $usuario_id]]);
-        $this->carregar_pagina("usuario/perfil", $dados);//dentro da view, cada posição do array $dados pode ser tratada como uma variável individual
+        $this->carregar_pagina("usuario/perfil", $dados); //dentro da view, cada posição do array $dados pode ser tratada como uma variável individual
+    }
+
+    public function editar() {
+        $dados["usuario"] = $this->usuario->buscar_row(["where" => ["id" => $this->session->usuario_id]]);
+        $this->carregar_pagina("usuario/editar", $dados);
+    }
+
+    public function atualizar() {
+        $dados = $this->input->post(['nome', 'email', 'sobre']);
+        $dados["dataNascimento"] = $this->input->post('nascimento');
+        $usuario_logado = $this->usuario->buscar_row(["where" => ["id" => $this->session->usuario_id]]);
+        $this->form_validation_atualizar($dados, $usuario_logado);
+        if ($this->form_validation->run() === TRUE) { //Regras de validação estão em config/form_validation
+            if ($this->validar_data_nascimento($dados['dataNascimento'])) {
+                $this->usuario->atualizar($this->session->usuario_id,$dados);
+                adicionar_alerta("success", "Dados atualizados com sucesso!");
+                redirect("editar");
+            } else {
+                adicionar_alerta("danger", "O usuário deve ser maior de idade!");
+                redirect("editar");
+            }
+        } else {
+            adicionar_alerta('danger', validation_errors());
+            redirect("editar");
+        }
+    }
+
+    private function form_validation_atualizar($dados, $usuario_logado) {
+        $this->form_validation->set_rules('nome', 'Nome', 'required');
+        $this->form_validation->set_rules('nascimento', 'Data de Nascimento', 'required');
+
+        if ($dados['email'] == $usuario_logado->email) {
+            $this->form_validation->set_rules('email', 'E-mail', 'required|valid_email');
+        } else {
+            $this->form_validation->set_rules('email', 'E-mail', 'required|valid_email|is_unique[usuario.email]');
+        }
     }
 
 }

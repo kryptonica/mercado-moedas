@@ -1,7 +1,7 @@
 <section class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h2>Perfil  <?= $usuario->nome; ?></h2>
+            <h2>Perfil de <?= $usuario->nome; ?></h2>
             <hr>
         </div>
     </div>
@@ -29,17 +29,7 @@
                 <h4 class="raleway-bold">Sobre mim</h4>
                 <div class="panel-body">
                     <div id="sobre-mim" class="text-justify">
-                        Mussum Ipsum, cacilds vidis litro abertis. Posuere libero varius.
-                        Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.
-                        Viva Forevis aptent taciti sociosqu ad litora torquent. 
-                        A ordem dos tratores não altera o pão duris. Interagi no mé,
-                        cursus quis, vehicula ac nisi. Manduma pindureta quium dia nois
-                        paga. Cevadis im ampola pa arma uma pindureta. In elementis mé 
-                        quem é amistosis quis leo. Leite de capivaris, leite de mula manquis
-                        sem cabeça. Suco de cevadiss deixa as pessoas mais interessantis. 
-                        Sapien in monti palavris qui num significa nadis i pareci latim. Mé faiz
-                        elementum girarzis, nisi eros vermeio. Não sou faixa preta cumpadi,
-                        sou preto inteiris, inteiris.
+                        <?= $usuario->sobre ?>
                     </div>
                 </div>
             </div>
