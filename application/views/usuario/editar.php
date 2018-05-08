@@ -8,7 +8,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="clearfix">
-                <button class="btn btn-sm btn-warning pull-right"><span class="fa fa-lock"></span> Alterar senha</button>
+                <button class="btn btn-sm btn-warning pull-right" data-toggle="modal" data-target="#modal-alterar-senha"><span class="fa fa-lock"></span> Alterar senha</button>
             </div>
         </div>
         <div class="panel-body">
@@ -52,3 +52,4 @@
         </div>
     </div>
 </section>
+<?php $this->view("usuario/modal_alterar_senha"); ?>

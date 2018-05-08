@@ -68,7 +68,7 @@ class Usuario_c extends MY_Controller {
         $this->form_validation_atualizar($dados, $usuario_logado);
         if ($this->form_validation->run() === TRUE) { //Regras de validação estão em config/form_validation
             if ($this->validar_data_nascimento($dados['dataNascimento'])) {
-                $this->usuario->atualizar($this->session->usuario_id,$dados);
+                $this->usuario->atualizar($this->session->usuario_id, $dados);
                 adicionar_alerta("success", "Dados atualizados com sucesso!");
                 redirect("editar");
             } else {
@@ -89,6 +89,27 @@ class Usuario_c extends MY_Controller {
             $this->form_validation->set_rules('email', 'E-mail', 'required|valid_email');
         } else {
             $this->form_validation->set_rules('email', 'E-mail', 'required|valid_email|is_unique[usuario.email]');
+        }
+    }
+
+    public function alterar_senha() {
+        $this->load->model('login');
+        $dados = $this->input->post();
+        $usuario = $this->usuario->buscar_row(["where" => ["id" => $this->session->usuario_id]]);
+        if ($this->form_validation->run() === TRUE) {
+            if ($this->login->resolve_user_login($usuario->email, $dados['senha_atual'])) {
+                $dados_usuario['senha'] = password_hash($dados['nova_senha'], PASSWORD_BCRYPT);
+                if ($this->usuario->atualizar($this->session->usuario_id, $dados_usuario)) {
+                    adicionar_alerta('success', 'Senha alterada com sucesso.');
+                    redirect('editar');
+                }
+            } else {
+                adicionar_alerta('danger', 'Senha atual incorreta');
+                redirect('editar');
+            }
+        } else {
+            adicionar_alerta('danger', validation_errors());
+            redirect('editar');
         }
     }
 

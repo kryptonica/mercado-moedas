@@ -32,7 +32,7 @@ $config = array(
         array(
             'field' => 'senha',
             'label' => 'Senha',
-            'rules' => 'required',
+            'rules' => 'required|min_length[8]',
         ),
         array(
             'field' => 'confirmar-senha',
@@ -93,5 +93,22 @@ $config = array(
             'label' => 'Tipo de moeda',
             'rules' => 'required',
         ),
-    )
+    ),
+    'usuario_c/alterar_senha' => array(
+        array(
+            'field' => 'senha_atual',
+            'label' => 'Senha Atual',
+            'rules' => 'required',
+        ),
+        array(
+            'field' => 'nova_senha',
+            'label' => 'Nova Senha',
+            'rules' => 'required|min_length[8]',
+        ),
+        array(
+            'field' => 'confirm_nova_senha',
+            'label' => 'Confirmação da nova senha',
+            'rules' => 'required|matches[nova_senha]',
+        ),
+    ),
 );
