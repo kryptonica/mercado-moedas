@@ -10,20 +10,20 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class=" form-group col-sm-12">
-                            <label for="senha_atual">Senha atual: </label>
-                            <input type="password" name="senha_atual" id="senha_atual" class="form-control">
+                            <label for="senha_atual"  class="lb">Senha atual: </label>
+                            <input type="password" name="senha_atual" id="senha_atual" class="form-control radius-input">
                         </div>
                     </div>
                     <div class="row">
                         <div class=" form-group col-sm-12">
-                            <label for="nova_senha">Nova senha: </label>
-                            <input type="password" name="nova_senha" id="nova_senha" class="form-control">
+                            <label for="nova_senha"  class="lb">Nova senha: </label>
+                            <input type="password" name="nova_senha" id="nova_senha" class="form-control radius-input">
                         </div>
                     </div>
                     <div class="row">
                         <div class=" form-group col-sm-12">
-                            <label for="confirm_nova_senha">Confirmação da nova senha: </label>
-                            <input type="password" name="confirm_nova_senha" id="confirm_nova_senha" class="form-control">
+                            <label for="confirm_nova_senha"  class="lb">Confirmação da nova senha: </label>
+                            <input type="password" name="confirm_nova_senha" id="confirm_nova_senha" class="form-control radius-input">
                         </div>
                     </div>
                 </div>

@@ -29,11 +29,11 @@
                                 </div>
                             </form>
                             <div class="navbar-right">
-                                <a class="meus_anuncios_header" href="<?= base_url("meusanuncios"); ?>">Meus Anuncios</a>
-                                <span class="fa fa-user-circle" style="font-size: 30px;    padding:  10px;"></span>
+                                <!--<span class="fa fa-user-circle" style="font-size: 30px;    padding:  10px;"></span>-->
                                 <ul class="nav navbar-nav">
+                                    <li><a href="<?= base_url("meusanuncios"); ?>"><span class="fa fa-bullhorn"></span> Meus Anuncios</a></li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->session->nome ?><span class="fa fa-chevron-down"></span></a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user-circle"></span> <?= $this->session->nome ?><span class="fa fa-chevron-down"></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="<?= base_url("perfil/" . $this->session->usuario_id); ?>"><span class="fa fa-user-circle"></span> Perfil</a></li>
                                             <li><a href="<?= base_url("editar"); ?>"><span class="fa fa-cog"></span> Editar perfil</a></li>
