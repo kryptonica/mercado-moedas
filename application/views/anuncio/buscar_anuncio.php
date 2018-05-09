@@ -7,7 +7,7 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
-			<form class="form_busca" method="post" action="<?= base_url("anuncio_c/buscar_anuncio") ?>" >
+			<form class="form_busca" method="post" action="<?= base_url("buscaranuncio") ?>" >
 				<div class="form-group">
 					<input type="text" class="form-control search" name="texto_busca" placeholder="Busca">
 				</div>
@@ -66,7 +66,7 @@
 										<p><?php echo 'Preço: R$'.$anuncios[$j]->preco ?></p>
 										<p><?php echo 'Quantidade: '.$anuncios[$j]->quantidade ?></p>
 										<p>
-											<a href="<?= base_url("anuncio_c/visualizar_anuncio?id=". $anuncios[$j]->id) ?>" class="btn btn-primary" role="button">Mais Informações</a>
+											<a href="<?= base_url("visualizaranuncio?id=". $anuncios[$j]->id) ?>" class="btn btn-primary" role="button">Mais Informações</a>
 										</p>
 									</div>
 								</div>
