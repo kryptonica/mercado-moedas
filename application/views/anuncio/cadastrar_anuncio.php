@@ -29,7 +29,7 @@
 
 				<div class="form-group">
 					<label for="quantidade_anuncio" class="lb">Quantidade:</label>
-					<input type="number" step="0.01" min="0" class="form-control radius-input" name="quantidade" id="quantidade_anuncio" placeholder="Quantidade"
+					<input type="number" step="0.00000001" min="0" class="form-control radius-input" name="quantidade" id="quantidade_anuncio" placeholder="Quantidade"
 					value="" required>
 				</div>
 
@@ -37,14 +37,14 @@
 					<label for="select_anuncio" class="lb">Tipo de moeda:</label>
 					<select class="custom-select" id="select_anuncio" name="tipo_moeda" required>
 						<option value="" disabled selected>Tipo de Moeda</option>
-						<?php 
+						<?php
                     foreach ($moedas as $key => $moeda) {
-                        
+
                             echo '<option value="'.$moeda->moeda.'">'.$moeda->nome.'</option>';
 
                     }
-                
-                
+
+
                 ?>
 					</select>
 				</div>
