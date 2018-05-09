@@ -22,7 +22,7 @@
 					<label for="preco_anuncio" class="lb">Preço:</label>
 					<div class="input-group">
 						<span class="input-group-addon">R$</span>
-						<input type="number" step="0.1" class="form-control radius-input" name="preco" id="preco_anuncio" placeholder="Preço" value=""
+						<input type="number"  step="0.01" class="form-control radius-input" name="preco" id="preco_anuncio" placeholder="Preço" value=""
 						required>
 					</div>
 				</div>

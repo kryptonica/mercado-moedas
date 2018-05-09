@@ -111,4 +111,7 @@ $config = array(
             'rules' => 'required|matches[nova_senha]',
         ),
     ),
+    'anuncio_c/remover_anuncio' => array(
+        
+    ),
 );

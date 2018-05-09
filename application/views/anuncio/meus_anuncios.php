@@ -22,12 +22,13 @@
                         foreach ($anuncios as $key => $anuncio) {
 
                             echo '<a href=' . site_url("editaranuncio/?id=" . $anuncio->id) . ' class="list-group-item list-group-item-action">' . $anuncio->titulo . ' - Iniciado em ' . $anuncio->data_inicio . '</a>';
-                        }
-                        ?>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+                    }
+                
+                ?>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </section>

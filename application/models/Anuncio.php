@@ -4,7 +4,7 @@ class Anuncio extends MY_Model {
 
     public function __construct() {
         parent::__construct();
-        $this->tabela = 'anuncio';
+        $this->tabela = 'item_comercializavel';
         $this->ordenacao = [
             'id' => 'asc',
         ];
