@@ -248,3 +248,8 @@ td.clique a {
 #descricao-anuncio{
     padding: 20px;
 }
+
+.anuncio_panel_header{
+    padding: 0 !important;
+    height: 40%;
+}

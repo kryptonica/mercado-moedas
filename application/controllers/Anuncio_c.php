@@ -40,6 +40,7 @@ class Anuncio_c extends MY_Controller {
 
     public function buscar_anuncio() {
         
+        $anuncios = $this->anuncio->listar_anuncios();
         
         $this->carregar_pagina("anuncio/buscar_anuncio");
         

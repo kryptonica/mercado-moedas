@@ -20,18 +20,24 @@
 
 	<div class="panel panel-default">
 		<div class="panel-body">
-			
-			<div class="row">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						
 
+			<div class="row">
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+						<img src="<?= base_url('assets/img/cripto_img.png'); ?>" alt="...">
+						<div class="caption">
+							<h3>Thumbnail label</h3>
+							<p>...</p>
+							<p>
+								<a href="#" class="btn btn-primary" role="button">Button</a>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
 
 		</div>
 	</div>
-	
+
 </section>
 <?php $this->view("anuncio/modal_remover_anuncio"); ?>
