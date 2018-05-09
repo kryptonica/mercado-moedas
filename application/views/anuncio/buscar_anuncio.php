@@ -1,3 +1,7 @@
+<?php 
+header('Cache-Control: no cache'); 
+
+?>
 <section class="container" style="min-height:62.5%;">
 	<div class="row">
 		<div class="col-sm-12">
