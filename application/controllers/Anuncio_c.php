@@ -103,7 +103,7 @@ class Anuncio_c extends MY_Controller {
 
             $resultado = $this->anuncio->inserir($dados);
             var_dump($resultado);
-            if($resultado>0){
+            if( is_numeric($resultado) ){
                 
                 adicionar_alerta("success", "Anuncio Cadastrado");
                 redirect("cadastraranuncio");
@@ -123,7 +123,7 @@ class Anuncio_c extends MY_Controller {
         if ($this->form_validation->run() === TRUE) {
             $resultado = $this->anuncio->remover($id);
 
-            if($resultado>0){
+            if($resultado){
                 
                 adicionar_alerta("success", "Anuncio Removido");
                 redirect("meusanuncios");
