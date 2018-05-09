@@ -1,4 +1,4 @@
-<section class="container" style="min-height:62.5%;">
+<section class="container colar-rodape">
 	<div class="row">
 		<div class="col-sm-12">
 			<h2>Editar Anuncio</h2>
@@ -20,7 +20,7 @@
 
 		<div class="panel-body">
 			<?php $this->view('commons/alertas'); ?>
-			<form method="post" action="<?= base_url(" anuncio_c/confirmar_atualizacao ") ?>">
+			<form method="post" action="<?= base_url("anuncio_c/confirmar_atualizacao ") ?>">
 				<input type="hidden" class="form-control" name="id" id="id_anuncio" value="<?php echo $anuncio->id ?>">
 				<div class="form-group">
 					<label for="titulo_anuncio" class="lb">Titulo:</label>
@@ -69,7 +69,7 @@
 
 				<div class="form-group text-center">
 					<button type="submit" class="btn btn-success">
-						<span class="fa fa-check"></span>Salvar Alterações</button>
+						<span class="fa fa-check"></span> Salvar Alterações</button>
 				</div>
 			</form>
 		</div>

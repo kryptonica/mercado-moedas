@@ -1,4 +1,4 @@
-<section class="container" style="min-height:62.5%;">
+<section class="container colar-rodape">
 	<div class="row">
 		<div class="col-sm-12">
 			<h2>Cadastrar Anuncio</h2>
@@ -9,7 +9,7 @@
 
 		<div class="panel-body">
 			<?php $this->view('commons/alertas'); ?>
-			<form method="post" action="<?= base_url(" anuncio_c/confirmar_cadastro ") ?>">
+			<form method="post" action="<?= base_url("anuncio_c/confirmar_cadastro ") ?>">
 				<div class="form-group">
 					<label for="titulo_anuncio" class="lb">Titulo:</label>
 					<input type="text" class="form-control radius-input" name="titulo" id="titulo_anuncio" placeholder="Titulo" value="" required>
