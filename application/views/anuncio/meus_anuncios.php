@@ -21,8 +21,7 @@
 			<div class="row">
 				<div class="col-xs-12 ">
 
-					<ul class="l
-                    ist-group">
+					<ul class="list-group">
 						<?php 
                     foreach ($anuncios as $key => $anuncio) {
                         

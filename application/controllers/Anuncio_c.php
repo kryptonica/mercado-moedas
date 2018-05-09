@@ -112,19 +112,19 @@ class Anuncio_c extends MY_Controller {
         }
     }
 
-    public function remover()
+    public function remover_anuncio()
     {
+        $confirmar_delete = $this->input->post('confirm-delete');
         $id = $this->input->post('id');
-
-
+        echo $confirmar_delete;
         if ($this->form_validation->run() === TRUE) {
-
+            echo "adfdsfadsf";
             $resultado = $this->anuncio->remover($id);
 
             if($resultado){
                 
                 adicionar_alerta("success", "Anuncio Removido");
-                redirect("editaranuncio/?id=".$id);
+                redirect("meusanuncios");
 
             }else{
                 adicionar_alerta("danger", "Remoção mal sucedida!");

@@ -9,7 +9,7 @@
 
 		<div class="panel-body">
 			<?php $this->view('commons/alertas'); ?>
-			<form method="post" action="<?= base_url(" anuncio_c/confirmar_cadastro ") ?>">
+			<form method="post" action="<?= base_url("anuncio_c/confirmar_cadastro ") ?>">
 				<div class="form-group">
 					<label for="titulo_anuncio" class="lb">Titulo:</label>
 					<input type="text" class="form-control radius-input" name="titulo" id="titulo_anuncio" placeholder="Titulo" value="" required>
@@ -22,14 +22,14 @@
 					<label for="preco_anuncio" class="lb">Preço:</label>
 					<div class="input-group">
 						<span class="input-group-addon">R$</span>
-						<input type="number" step="0.1" class="form-control radius-input" name="preco" id="preco_anuncio" placeholder="Preço" value=""
+						<input type="number"  step="0.01" class="form-control radius-input" name="preco" id="preco_anuncio" placeholder="Preço" value=""
 						required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="quantidade_anuncio" class="lb">Quantidade:</label>
-					<input type="number" step="0.1" min="0" class="form-control radius-input" name="quantidade" id="quantidade_anuncio" placeholder="Quantidade"
+					<input type="number" step="0.01" min="0" class="form-control radius-input" name="quantidade" id="quantidade_anuncio" placeholder="Quantidade"
 					value="" required>
 				</div>
 
