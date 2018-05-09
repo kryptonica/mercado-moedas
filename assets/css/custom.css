@@ -212,14 +212,6 @@ hr {
     padding-left: 15px;
 }
 
-/*.meus_anuncios_header{
-    padding: 15px 15px;
-    float: left;
-    text-decoration: none !important;
-}*/
-.cadastrar_anuncio{
-    margin-top: 20px;
-}
 textarea {
     resize: none;
 }
