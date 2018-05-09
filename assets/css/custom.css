@@ -253,3 +253,14 @@ td.clique a {
     padding: 0 !important;
     height: 40%;
 }
+
+.anuncio_thumb_text{
+    height: 60px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.descricao_thumb{
+    border: solid #ccc 1px;
+    border-radius: 4px;
+}

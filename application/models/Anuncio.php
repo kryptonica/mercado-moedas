@@ -10,6 +10,10 @@ class Anuncio extends MY_Model {
         ];
     }
 
+    public function listar_anuncios(){
+        return $this->buscar();
+    }
+
     public function listar_anuncios_pelo_usuario($id) {
         return $this->buscar(["where" => ["id_usuario" => $id]]);
     }

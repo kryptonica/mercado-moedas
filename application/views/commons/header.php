@@ -23,9 +23,9 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <?php if ($this->session->logado): ?>
-                            <form class="navbar-form navbar-left">
+                            <form class="navbar-form navbar-left form_busca" method="post" action="<?= base_url("anuncio_c/buscar_anuncio") ?>" >
                                 <div class="form-group">
-                                    <input type="text" class="form-control search" placeholder="Busca">
+                                    <input type="text" class="form-control search" name="texto_busca" placeholder="Busca">
                                 </div>
                             </form>
                             <div class="navbar-right">

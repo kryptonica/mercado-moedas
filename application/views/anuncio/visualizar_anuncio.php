@@ -10,7 +10,7 @@
                     <h1>R$ <?= $anuncio->preco ?></h1>
                     <h5>Quantidade disponível: <span class="font-bold"> <?= $anuncio->quantidade ?></span></h5>
                     <br>
-                    <p class="text-justify"><?= $anuncio->descricao ?></p>
+                    <p class="text-justify" style=" word-wrap: break-word;"><?= $anuncio->descricao ?></p>
                     <a class="btn btn-primary">Comprar agora</a>
                     <hr>
                     <h3>Informações do vendedor:</h3>

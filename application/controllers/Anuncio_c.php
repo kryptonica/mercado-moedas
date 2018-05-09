@@ -41,11 +41,21 @@ class Anuncio_c extends MY_Controller {
     public function buscar_anuncio() {
         
         $anuncios = $this->anuncio->listar_anuncios();
-        
-        $this->carregar_pagina("anuncio/buscar_anuncio");
+        $moedas = $this->anuncio->listar_moedas();
+        $texto = $this->input->post('texto_busca');
+        $dados = array('anuncios' => $anuncios, 'moedas' => $moedas, 'texto'=>$texto );
+
+        $this->carregar_pagina("anuncio/buscar_anuncio", $dados);
         
     }
 
+    public function filtrar_anuncios()
+    {
+        $texto = $this->input->post('texto_busca');
+        
+        $this->carregar_pagina("anuncio/buscar_anuncio", $dados);
+
+    }
     
     public function confirmar_atualizacao() {
         $id = $this->input->post('id');
@@ -135,8 +145,9 @@ class Anuncio_c extends MY_Controller {
         }
     }
 
-    public function teste() {
-        $dados["anuncio"] = $this->anuncio->buscar_com_relacoes(["where" => ["id" => 3]])[0];
+    public function visualizar_anuncio() {
+        $id = $this->input->get('id');
+        $dados["anuncio"] = $this->anuncio->buscar_com_relacoes(["where" => ["id" => $id]])[0];
         $this->carregar_pagina("anuncio/visualizar_anuncio", $dados);
     }
 
