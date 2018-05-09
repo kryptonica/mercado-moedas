@@ -43,10 +43,14 @@
 							
 							$moeda_atual = null;
 							$texto_test = $texto;
-							if(empty($anuncios[$j]) || ($texto!=null && strlen(trim($texto_test) == 0) && strpos( tratar_string($anuncios[$j]->titulo), $texto) === false)  ){
-								continue;
-							}
 
+							if (strlen(trim($texto_test)) != 0){
+								
+								if(empty($anuncios[$j]) || ($texto!=null && strpos( tratar_string($anuncios[$j]->titulo), $texto) === false)  ){
+									continue;
+								}
+								
+							}
 
 
 								foreach ($moedas as $key => $moeda) {
