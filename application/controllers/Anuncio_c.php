@@ -39,6 +39,13 @@ class Anuncio_c extends MY_Controller {
         
     }
 
+    public function buscar_anuncio() {
+        
+        
+        $this->carregar_pagina("anuncio/buscar_anuncio");
+        
+    }
+
     public function confirmar_atualizacao()
     {
         $id = $this->input->post('id');

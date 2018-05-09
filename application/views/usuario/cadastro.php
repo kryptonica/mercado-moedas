@@ -8,6 +8,8 @@
                     <div class="msg-cadastro col-md-6 col-md-offset-3 col-xs-12">
                         <h2>Cadastro</h2>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-4 col-md-offset-4 col-xs-12 form-cadastro">
                     <?php $this->view('commons/alertas'); ?>
                         <form method="post" action="<?= base_url("usuario_c/inserir"); ?>">

@@ -25,7 +25,7 @@
                         <?php if ($this->session->logado): ?>
                             <form class="navbar-form navbar-left">
                                 <div class="form-group">
-                                    <input type="text" class="form-control search" placeholder="Search">
+                                    <input type="text" class="form-control search" placeholder="Busca">
                                 </div>
                             </form>
                             <div class="navbar-right">

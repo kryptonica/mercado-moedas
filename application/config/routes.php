@@ -57,6 +57,7 @@ $route['perfil/(:num)'] = 'usuario_c/visualizar_perfil/$1';
 $route['meusanuncios'] = 'anuncio_c/meus_anuncios/';
 $route['editaranuncio'] = 'anuncio_c/editar_anuncio/';
 $route['cadastraranuncio'] = 'anuncio_c/cadastrar_anuncio/';
+$route['buscaranuncio'] = 'anuncio_c/buscar_anuncio/';
 $route['editar'] = 'usuario_c/editar';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

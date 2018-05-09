@@ -128,7 +128,7 @@ html, body{
 #container-form-cadastro{
     position: absolute;
     margin: auto;
-    top: 15%;
+    top: 30%;
     left: 50%;
     transform:  translate(-50%,-15%);
     text-align: center;
@@ -173,10 +173,7 @@ html, body{
 }
 
 .msg-cadastro{
-    margin-top: 70px;
     text-align: center;
-    margin-bottom: 25px;
-    height: 110px;
 }
 
 hr {
