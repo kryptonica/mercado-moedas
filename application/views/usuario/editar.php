@@ -21,19 +21,19 @@
                 <div class="row">
                     <div class="form-group col-sm-12">
                         <label for="nome" class="lb">Nome: </label>
-                        <input type="text" class="form-control radius-input" name="nome" id="nome" value="<?= $usuario->nome ?>">
+                        <input required type="text" class="form-control radius-input" name="nome" id="nome" value="<?= $usuario->nome ?>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-12">
                         <label for="email" class="lb">E-mail: </label>
-                        <input type="email" class="form-control radius-input" name="email" id="email" value="<?= $usuario->email ?>">
+                        <input required type="email" class="form-control radius-input" name="email" id="email" value="<?= $usuario->email ?>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-sm-12">
                         <label for="nascimento" class="lb">Data de nascimento: </label>
-                        <input type="date" class="form-control radius-input" name="nascimento" id="nascimento" value="<?= $usuario->dataNascimento ?>">
+                        <input required type="date" class="form-control radius-input" name="nascimento" id="nascimento" value="<?= $usuario->dataNascimento ?>">
                     </div>
                 </div>
                 <div class="row">

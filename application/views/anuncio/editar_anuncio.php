@@ -1,7 +1,7 @@
-<section class="container" style="min-height:62.5%;">
+<section class="container colar-rodape">
 	<div class="row">
 		<div class="col-sm-12">
-			<h2>Editar Anuncio</h2>
+			<h2>Editar Anúncio</h2>
 			<hr>
 		</div>
 	</div>
@@ -67,7 +67,7 @@
 
 				<div class="form-group text-center">
 					<button type="submit" class="btn btn-success">
-						<span class="fa fa-check"></span>Salvar Alterações</button>
+						<span class="fa fa-check"></span> Salvar Alterações</button>
 				</div>
 			</form>
 		</div>

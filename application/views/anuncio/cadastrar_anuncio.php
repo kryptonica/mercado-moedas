@@ -1,7 +1,7 @@
-<section class="container" style="min-height:62.5%;">
+<section class="container colar-rodape">
 	<div class="row">
 		<div class="col-sm-12">
-			<h2>Cadastrar Anuncio</h2>
+			<h2>Cadastrar Anúncio</h2>
 			<hr>
 		</div>
 	</div>
@@ -50,7 +50,7 @@
 				</div>
 				<div class="form-group text-center">
 					<button type="submit" class="btn btn-success">
-						<span class="fa fa-check"></span> Cadastrar Anuncio </button>
+						<span class="fa fa-check"></span> Cadastrar Anúncio </button>
 				</div>
 			</form>
 		</div>
