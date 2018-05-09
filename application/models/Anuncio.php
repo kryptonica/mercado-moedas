@@ -15,9 +15,9 @@ class Anuncio extends MY_Model {
         return $this->buscar(["where" => ["id_usuario" => $id]]);
     }
 
-    public function listar_anuncio_pelo_id($id)
+    public function listar_anuncio_pelo_id($id_usuario, $id)
     {
-        return $this->buscar_row(["where" => ["id" => $id]]);
+        return $this->buscar_row(["where" => ["id_usuario" => $id_usuario,"id" => $id]]);
     }
 
     public function listar_moedas()

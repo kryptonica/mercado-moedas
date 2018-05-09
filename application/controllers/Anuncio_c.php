@@ -24,13 +24,18 @@ class Anuncio_c extends MY_Controller {
     public function editar_anuncio() {
         
         $id = $this->input->get('id');
-            $anuncio = $this->anuncio->listar_anuncio_pelo_id($id);
-            $moedas = $this->anuncio->listar_moedas();
-            $dados = array(
-                'anuncio'=>$anuncio,
-                'moedas'=>$moedas
-            );
-            $this->carregar_pagina("anuncio/editar_anuncio",$dados);
+        $anuncio = $this->anuncio->listar_anuncio_pelo_id($this->session->usuario_id,$id);
+
+        if($anuncio == null){
+            redirect("meusanuncios");
+        }
+
+        $moedas = $this->anuncio->listar_moedas();
+        $dados = array(
+            'anuncio'=>$anuncio,
+            'moedas'=>$moedas
+        );
+        $this->carregar_pagina("anuncio/editar_anuncio",$dados);
         
     }
 
@@ -49,8 +54,6 @@ class Anuncio_c extends MY_Controller {
             'quantidade'=>$quantidade,
             'id_moeda'=>$tipo_moeda,
         );
-        var_dump($dados);
-        var_dump($id);
 
         if ($this->form_validation->run() === TRUE) {
 
@@ -99,8 +102,8 @@ class Anuncio_c extends MY_Controller {
         if ($this->form_validation->run() === TRUE) {
 
             $resultado = $this->anuncio->inserir($dados);
-
-            if($resultado){
+            var_dump($resultado);
+            if($resultado>0){
                 
                 adicionar_alerta("success", "Anuncio Cadastrado");
                 redirect("cadastraranuncio");
@@ -120,7 +123,7 @@ class Anuncio_c extends MY_Controller {
         if ($this->form_validation->run() === TRUE) {
             $resultado = $this->anuncio->remover($id);
 
-            if($resultado){
+            if($resultado>0){
                 
                 adicionar_alerta("success", "Anuncio Removido");
                 redirect("meusanuncios");
