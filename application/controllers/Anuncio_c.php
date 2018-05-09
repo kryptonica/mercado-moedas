@@ -45,8 +45,7 @@ class Anuncio_c extends MY_Controller {
         
     }
 
-    public function confirmar_atualizacao()
-    {
+    
     public function confirmar_atualizacao() {
         $id = $this->input->post('id');
         $titulo = $this->input->post('titulo');
