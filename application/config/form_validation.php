@@ -112,6 +112,10 @@ $config = array(
         ),
     ),
     'anuncio_c/remover_anuncio' => array(
-        
+        array(
+            'field' => 'id',
+            'label' => 'Id',
+            'rules' => 'required',
+        ),
     ),
 );

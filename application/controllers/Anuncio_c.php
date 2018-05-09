@@ -118,7 +118,6 @@ class Anuncio_c extends MY_Controller {
         $id = $this->input->post('id');
         echo $confirmar_delete;
         if ($this->form_validation->run() === TRUE) {
-            echo "adfdsfadsf";
             $resultado = $this->anuncio->remover($id);
 
             if($resultado){
