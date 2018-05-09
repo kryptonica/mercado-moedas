@@ -1,7 +1,7 @@
 <section class="container colar-rodape">
 	<div class="row">
 		<div class="col-sm-12">
-			<h2>Editar Anuncio</h2>
+			<h2>Editar Anúncio</h2>
 			<hr>
 		</div>
 	</div>

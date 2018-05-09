@@ -1,7 +1,7 @@
 <section class="container colar-rodape">
     <div class="row">
         <div class="col-sm-12">
-            <h2>Meus Anuncios</h2>
+            <h2>Meus Anúncios</h2>
             <hr>
         </div>
 
@@ -10,7 +10,7 @@
         <div class="panel-heading">
             <div class="clearfix">
                 <a href="<?= site_url('cadastraranuncio') ?>">
-                    <button class="btn btn-sm btn-success pull-right"><span class="fa fa-plus"></span> Cadastrar Anuncio</button>
+                    <button class="btn btn-sm btn-success pull-right"><span class="fa fa-plus"></span> Cadastrar Anúncio</button>
                 </a>
             </div>
         </div>
