@@ -11,13 +11,17 @@
                     <h5>Quantidade disponível: <span class="font-bold"> <?= $anuncio->quantidade ?></span></h5>
                     <br>
                     <p class="text-justify" style=" word-wrap: break-word;"><?= $anuncio->descricao ?></p>
-                    <a class="btn btn-primary">Comprar agora</a>
+                    <form method="post" action="">
+                        <input type="number" placeholder="Qtd." name="quantidade" id="quantidade-compra" class="form-control">
+                        <a class="btn btn-primary">Comprar agora</a>
+                        <a class="btn btn-info">Adicionar ao carrinho</a>
+                    </form>
                     <hr>
                     <h3>Informações do vendedor:</h3>
                     <p class="text-justify"><span class="font-bold">Nome:</span> <?= $anuncio->usuario->nome ?></p>
                     <p class="text-justify"><span class="font-bold">Sobre:</span> <?= $anuncio->usuario->sobre ?></p>
                     <div class="clearfix">
-                        <a class="pull-right btn btn-sm btn-info" href="<?= base_url("perfil/" . $anuncio->usuario->id) ?>">Ver perfil</a>
+                        <a class="pull-right btn btn-sm btn-warning" href="<?= base_url("perfil/" . $anuncio->usuario->id) ?>">Ver perfil</a>
                     </div>
                 </div>
             </div>

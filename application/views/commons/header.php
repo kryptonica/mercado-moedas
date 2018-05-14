@@ -31,11 +31,12 @@
                             <div class="navbar-right">
                                 <!--<span class="fa fa-user-circle" style="font-size: 30px;    padding:  10px;"></span>-->
                                 <ul class="nav navbar-nav">
-                                    <li><a href="<?= base_url("meusanuncios"); ?>"><span class="fa fa-bullhorn"></span> Meus Anuncios</a></li>
+                                    <li><a href="<?= base_url("carrinho_c"); ?>"><span class="fa fa-shopping-cart"></span> Carrinho (0) </a></li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user-circle"></span> <?= $this->session->nome ?><span class="fa fa-chevron-down"></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="<?= base_url("perfil/" . $this->session->usuario_id); ?>"><span class="fa fa-user-circle"></span> Perfil</a></li>
+                                            <li><a href="<?= base_url("meusanuncios"); ?>"><span class="fa fa-bullhorn"></span> Meus Anuncios</a></li>
                                             <li><a href="<?= base_url("editar"); ?>"><span class="fa fa-cog"></span> Editar perfil</a></li>
                                             <li><a href="<?= base_url("login_c/logout"); ?>"><span class="fa fa-sign-out"></span> Sair</a></li>
                                         </ul>

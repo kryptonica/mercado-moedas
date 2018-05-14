@@ -264,3 +264,23 @@ td.clique a {
     border: solid #ccc 1px;
     border-radius: 4px;
 }
+
+.table-carrinho td{
+    padding: 30px !important; 
+}
+.table-carrinho input{
+    width: 50% !important;
+    padding: 20px 10px; 
+    line-height: 28px;
+}
+.td-preco {
+    font-size: 30px;
+}
+.td-nome-anuncio{
+    width: 40%
+}
+#quantidade-compra{
+    width: 20%;
+    display: inline-block !important;
+    /*padding-top: 1px;*/
+}
