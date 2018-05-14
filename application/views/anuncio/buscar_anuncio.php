@@ -1,5 +1,5 @@
-<?php 
-header('Cache-Control: no cache'); 
+<?php
+header('Cache-Control: no cache');
 
 ?>
 <section class="container" style="min-height:62.5%;">
@@ -10,7 +10,7 @@ header('Cache-Control: no cache');
 		</div>
 	</div>
 
-	<form class="form_busca" method="post" action="<?= base_url("buscaranuncio ") ?>">
+	<form class="form_busca" method="post" action="<?= base_url("buscaranuncio") ?>">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group">
@@ -33,7 +33,7 @@ header('Cache-Control: no cache');
 			<div class="col-sm-12">
 					<label for="tipo_moeda" class="lb">Tipo de moeda:</label>
 				<div class="form-group">
-					<?php 
+					<?php
 						foreach ($moedas as $key => $moeda) {
 							if($moedas_post != null)
 								$checked = in_array($moeda->moeda,$moedas_post) ? "checked" : "";
@@ -41,7 +41,7 @@ header('Cache-Control: no cache');
 								$checked = '';
 							echo '<label class="checkbox-inline"><input type="checkbox" name="tipo_moeda[]"  '.$checked.'  value="'.$moeda->moeda.'"> '.$moeda->nome.' </label>';
 						}
-					
+
 					?>
 				</div>
 			</div>
@@ -56,13 +56,13 @@ header('Cache-Control: no cache');
 
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<?php 
-			$limite = sizeOf($anuncios); $i = 0; 
+			<?php
+			$limite = sizeOf($anuncios); $i = 0;
 			?>
 			<div class="row">
 
-				<?php while($i < $limite){ 	
-	
+				<?php while($i < $limite){
+
 							$moeda_atual = null;
 
 
@@ -72,8 +72,8 @@ header('Cache-Control: no cache');
 										$moeda_atual = $moeda->nome;
 									}
 								}
-							
-							
+
+
 							?>
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
@@ -100,7 +100,7 @@ header('Cache-Control: no cache');
 					</div>
 				</div>
 
-				<?php $i++; 
+				<?php $i++;
 				?>
 				<?php } ?>
 			</div>
