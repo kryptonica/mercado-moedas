@@ -10,7 +10,7 @@ header('Cache-Control: no cache');
 		</div>
 	</div>
 
-	<form class="form_busca" method="post" action="<?= base_url("buscaranuncio ") ?>">
+	<form class="form_busca" method="post" action="<?= base_url("buscaranuncio") ?>">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group">
