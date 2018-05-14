@@ -73,3 +73,14 @@ function ocultar($controllers) {
     $CI = &get_instance();
     return in_array($CI->router->class, $controllers) ? 'hidden' : '';
 }
+
+function quantidade_carrinho() {
+    $CI = &get_instance();
+    $total = 0;
+    if (!empty($CI->session->carrinho)) {
+            foreach ($CI->session->carrinho as $item) {
+                $total += $item->quantidade;
+            }
+        }
+    return $total;
+}

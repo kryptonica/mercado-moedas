@@ -60,5 +60,7 @@ $route['cadastraranuncio'] = 'anuncio_c/cadastrar_anuncio/';
 $route['buscaranuncio'] = 'anuncio_c/buscar_anuncio/';
 $route['visualizaranuncio'] = 'anuncio_c/visualizar_anuncio/';
 $route['editar'] = 'usuario_c/editar';
+
+$route['carrinho'] = 'carrinho_c';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

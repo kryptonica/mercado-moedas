@@ -29,9 +29,7 @@
         <p> Copyright 2018 Kriptonica - Todos os direitos reservados.</p>
       </div>
     </footer>
-    <script	src="<?=base_url('assets/js/jquery-3.2.1.min.js')?>"></script>
-    <script	src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
-    <script	src="<?=base_url('assets/js/ajax.js')?>"></script>
+    <!--<script	src="</?=base_url('assets/js/ajax.js')?>"></script>-->
     <script	src="<?=base_url('assets/js/custom.js')?>"></script>
   </body>
 </html>

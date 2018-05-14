@@ -40,13 +40,16 @@ class Anuncio_c extends MY_Controller {
 
     public function buscar_anuncio() {
         
-        $anuncios = $this->anuncio->listar_anuncios();
-        $moedas = $this->anuncio->listar_moedas();
+        $ordenacao = $this->input->post('ordenacao_busca');
         $texto = $this->input->post('texto_busca');
-        $dados = array('anuncios' => $anuncios, 'moedas' => $moedas, 'texto'=>$texto );
+        $moedas_post = $this->input->post('tipo_moeda');
+        $anuncios = $this->anuncio->listar_anuncios($ordenacao, $texto, $moedas_post);
+        $moedas = $this->anuncio->listar_moedas();
+        $tudo = $this->input->get('tudo');
+        $dados = array('anuncios' => $anuncios, 'tudo' => $tudo,'moedas' => $moedas, 'moedas_post' => $moedas_post, 'texto'=>$texto, 'ordenacao'=>$ordenacao );
 
-        $this->carregar_pagina("anuncio/buscar_anuncio", $dados);
-        
+            $this->carregar_pagina("anuncio/buscar_anuncio", $dados);
+            
     }
 
     public function filtrar_anuncios()
