@@ -42,7 +42,9 @@
         </div>
         <div class="panel-footer">
             <div class="clearfix">
-                <button class="btn btn-sm btn-primary pull-right"><span class="fa fa-check"></span> Comprar tudo</button>
+                <?php if (!empty($this->session->carrinho)): ?>
+                    <button class="btn btn-sm btn-primary pull-right"><span class="fa fa-check"></span> Comprar tudo</button>
+                <?php endif; ?>
             </div>
         </div>
     </div>
