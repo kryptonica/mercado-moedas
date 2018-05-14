@@ -10,8 +10,64 @@ class Anuncio extends MY_Model {
         ];
     }
 
-    public function listar_anuncios(){
-        return $this->buscar();
+    public function listar_anuncios($ordenacao,$texto,$moedas){
+        $ord_col = "data_inicio";
+        $ord_sentido = "desc";
+        switch ($ordenacao) {
+            case 'maior_data':
+                $ord_col = "data_inicio";
+                $ord_sentido = "asc";
+                break;
+            case 'maior_data':
+                $ord_col = "data_inicio";
+                $ord_sentido = "desc";
+                break;
+            case 'maior_preco':
+                $ord_col = "preco";
+                $ord_sentido = "desc";
+                break;
+            case 'menor_preco':
+                $ord_col = "preco";
+                $ord_sentido = "asc";
+                break;
+            case 'maior_quantidade':
+                $ord_col = "quantidade";
+                $ord_sentido = "desc";
+                break;
+            case 'menor_quantidade':
+                $ord_col = "quantidade";
+                $ord_sentido = "asc";
+                break;
+            default:
+                # code...
+                break;
+        }
+
+        $this->ordenacao = [
+            $ord_col => $ord_sentido,
+        ];
+
+        $moedas_sql = array();
+
+        if($moedas != null){
+            foreach ($moedas as $key => $moeda) {
+                $str_key = "id_moeda";
+                for ($i=0; $i < $key; $i++) { 
+                    $str_key.=" ";
+                }
+                $moedas_sql[$str_key] = $moeda;
+            }
+        }else{
+            $moedas_sql = array('1'=>1);
+        }
+
+        if ($texto == '') {
+            return $this->buscar(["or_where" => $moedas_sql]);
+        }else{
+            return $this->buscar(["like" => ["titulo" => $texto],"or_where" => $moedas_sql]);
+        }
+
+        
     }
 
     public function listar_anuncios_pelo_usuario($id) {

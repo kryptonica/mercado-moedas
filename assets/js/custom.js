@@ -8,10 +8,12 @@ $(function () {
         var code = e.keyCode || e.which;
         
 		if (code == 13) { 
-            $(".form_busca").submit();
+            	$($(this).parent()).find('button').click();
 		}
 
 	});
+
+	
 
 
 });
