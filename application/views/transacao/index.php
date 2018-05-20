@@ -17,11 +17,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($transacoes as $transacao): ?>
                         <tr>
-                            <td class="clique"><a href="<?= base_url("transacao_c/visualizar") ?>">Bitcoiins a um preço imperdivel</a></td>
-                            <td class="clique"><a href="<?= base_url("transacao_c/visualizar") ?>">10/12/2046</a></td>
-                            <td class="clique"><a href="<?= base_url("transacao_c/visualizar") ?>">Finalizada</a></td>
+                            <td class="clique"><a href="<?= base_url("transacao/visualizar/$transacao->id") ?>"><?= $transacao->anuncio->titulo?></a></td>
+                            <td class="clique"><a href="<?= base_url("transacao/visualizar/$transacao->id") ?>"><?= formatar_datetime($transacao->data_hora)?></a></td>
+                            <td class="clique"><a href="<?= base_url("transacao/visualizar/$transacao->id") ?>"><?= $transacao->aceita == 1 ? "Aceita" : "Aguardando aceitação do vendedor"?></a></td>
                         </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

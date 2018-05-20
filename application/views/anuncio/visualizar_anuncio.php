@@ -19,7 +19,7 @@
                         <p class="text-justify" style=" word-wrap: break-word;"><?= $anuncio->descricao ?></p>
                         <form method="post" action="<?= base_url("carrinho_c/inserir/" . $anuncio->id) ?>">
                             <input type="number" name="quantidade" id="quantidade-compra" class="form-control" value="1">
-                            <a class="btn btn-primary">Comprar agora</a>
+                            <a class="btn btn-primary"  data-toggle="modal" data-target="#modal-confirmar">Comprar agora</a>
                             <button type="submit" class="btn btn-info">Adicionar ao carrinho</button>
                         </form>
                         <hr>
@@ -35,3 +35,4 @@
         </div>
     </div>
 </section>
+<?php $this->view("transacao/modal_confirmacao");?>

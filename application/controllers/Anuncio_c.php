@@ -149,8 +149,10 @@ class Anuncio_c extends MY_Controller {
     }
 
     public function visualizar_anuncio() {
+        $this->load->model("carteira");
         $id = $this->input->get('id');
         $dados["anuncio"] = $this->anuncio->buscar_com_relacoes(["where" => ["id" => $id]])[0];
+        $dados["carteiras"] = $this->carteira->buscar_com_relacoes(["where" => ["id_usuario" => $this->session->usuario_id]]);
         $this->carregar_pagina("anuncio/visualizar_anuncio", $dados);
     }
 

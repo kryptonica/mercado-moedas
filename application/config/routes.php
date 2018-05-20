@@ -66,7 +66,9 @@ $route['buscaranuncio'] = 'anuncio_c/buscar_anuncio/';
 $route['visualizaranuncio'] = 'anuncio_c/visualizar_anuncio/';
 
 //rotas transacao
-$route['minhas-compras'] = 'transacao_c';
+$route['minhas-compras'] = 'transacao_c/minhas_compras';
+$route['minhas-vendas'] = 'transacao_c/minhas_vendas';
+$route['transacao/visualizar/(:num)'] = 'transacao_c/visualizar/$1';
 
 $route['carrinho'] = 'carrinho_c';
 $route['404_override'] = '';
