@@ -1,7 +1,7 @@
 <section class="container colar-rodape">
     <div class="row">
         <div class="col-sm-12">
-            <h2>Compra nº <?= $transacao->id ?> - <?= formatar_datetime($transacao->data_hora) ?></h2>
+            <h2 class="header_transacao" id_t=<?= $transacao->id ?> >Compra nº <?= $transacao->id ?> - <?= formatar_datetime($transacao->data_hora) ?></h2>
             <hr>
         </div>
     </div>
@@ -68,8 +68,12 @@
             <div class="panel-heading">
                 <h4 class="raleway-bold">Mensagens</h4>  
             </div>
-            <?php foreach ($transacao->mensagens as $mensagem): ?>
-                <div class="panel-body">
+            <div class="panel_msg">
+            <?php foreach ($transacao->mensagens as $indice => $mensagem):
+                
+                $classe_ultimo = ($indice+1)==sizeof($transacao->mensagens)?"ultimo":"";
+                ?>
+                <div class="<?php echo 'panel-body '.$classe_ultimo ?>" msg=<?= $mensagem->id ?>   >
                     <?php if ($mensagem->usuario->id == $this->session->usuario_id): ?>
                         <div class="col-sm-6 col-sm-offset-6">
                             <div class="panel panel-success">
@@ -99,13 +103,14 @@
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
+            </div>
             <div class="panel-footer">
                 <form id="enviar-mensagem" method="post" action="<?= base_url("transacao_c/adicionar_mensagem/" . $transacao->id); ?>">
                     <div class="form-group">
                         <textarea class="form-control" name="mensagem" id="mensagem"  required rows="5"></textarea>
                     </div>
                     <div class="text-center">
-                        <button id="btn-enviar-mensagem" type="submit" class="btn btn-primary"><span class="fa fa-send"></span> Enviar</button>
+                        <button id="btn-enviar-mensagem" type="button" class="btn btn-primary"><span class="fa fa-send"></span> Enviar</button>
                     </div>
                 </form>
             </div>
@@ -113,3 +118,93 @@
     </div>
 <?php endif; ?>
 </section>
+
+<script>
+    $('.panel_msg').animate({
+        scrollTop: $(".ultimo").offset().top
+    }, 100);
+
+
+    $("#btn-enviar-mensagem").click((event)=>{
+        event.preventDefault();
+
+        var form_data = $('#enviar-mensagem').serialize(); //Encode form elements for submission
+
+        $.ajax({
+        url : '<?=base_url()?>index.php/Transacao_c/adicionar_mensagem/'+<?= $transacao->id ?>,
+        type: 'post',
+        data : form_data,
+        success: function(response) {
+            $('#mensagem').val('');
+        },
+        error: function (err1,err2,err3) { 
+            
+            console.log(err1);
+            console.log(err2);
+            console.log(err3);
+            
+        }
+
+        });
+    });
+
+    function checarMsg() {
+		$id = $(".header_transacao").attr('id_t');
+		$.ajax({
+			type: "post",
+			url: '<?=base_url()?>index.php/Transacao_c/checar',
+			data: {id_transacao : $id},
+			dataType: "json",
+			success: function (response) {
+				console.log(response);
+                mensagens = response.transacao.mensagens;
+                mensagens_html = $('.panel_msg>.panel-body');
+
+                if( mensagens_html.length != mensagens.length ){
+                    mensagens_html.remove();
+                    
+                    
+                    mensagens.forEach( (mensagem,index) => {
+                        $msg = $('<div class="panel-body" msg="'+mensagem.id+'">');
+                        if( mensagem.usuario.id == response.id_usuario ){
+                            
+                            $msg.html('<div class="col-sm-6 col-sm-offset-6"> <div class="panel panel-success"> <div class="panel-heading text-right"> <span class="raleway-bold">Você em '+mensagem.data_hora+'</span> </div> <div class="panel-body"> <p class="text-justify raleway-medium">'+mensagem.mensagem+'</p></div></div> </div>');
+                            
+                        }else{
+                            
+                            $msg.html('<div class="col-sm-6"><div class="panel panel-info"><div class="panel-heading"><span class="raleway-bold">'+ mensagem.usuario.nome+'  em '+mensagem.data_hora+'</span></div><div class="panel-body"> <p class="text-justify raleway-medium">'+mensagem.mensagem+'</p> </div> </div> </div>');
+                            
+                        }
+
+
+                        $('.panel_msg').append($msg);
+                    });
+
+                    console.log('teste');
+                    
+
+                }
+                
+                
+
+
+
+            },
+            error: function (err1,err2,err3) { 
+                console.log(err1);
+                console.log(err2);
+                console.log(err3);
+                
+
+             }
+        });
+        
+
+	}
+	
+	setInterval(() => {
+        checarMsg();
+	}, 100);
+
+
+</script>

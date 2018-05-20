@@ -54,13 +54,22 @@ class Transacao_c extends MY_Controller {
         $this->load->model("mensagem");
         $mensagem = $this->input->post("mensagem");
         $this->mensagem->inserir(["id_usuario" => $this->session->usuario_id, "mensagem" => $mensagem, "id_transacao" => $transacao_id, "data_hora" => date("Y-m-d H:i:s")]);
-        redirect("transacao/visualizar/$transacao_id#enviar-mensagem");
+        //redirect("transacao/visualizar/$transacao_id#enviar-mensagem");
     }
 
     public function aceitar($transacao_id) {
         $this->transacao->atualizar($transacao_id, ["aceita" => 1]);
         adicionar_alerta("success", "Transação aceita! Envie uma mensagem para o comprador.");
         redirect("transacao/visualizar/$transacao_id");
+    }
+
+    public function checar(){
+
+        $transacao_id =  $this->input->post('id_transacao');
+        $dados['transacao'] = $this->transacao->buscar_com_relacoes( ["where" => ["id" => $transacao_id]] , ["order_by" => 'data_hora'] )[0];
+        $dados['id_usuario'] = $this->session->usuario_id;
+        echo json_encode($dados);
+
     }
 
 }

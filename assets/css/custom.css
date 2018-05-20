@@ -302,3 +302,8 @@ td.clique a {
 #img-detalhe-compra{
     max-width: 112px;
 }
+
+.panel_msg{
+    height: 500px;
+    overflow: scroll;
+}
