@@ -120,9 +120,13 @@
 </section>
 
 <script>
-    $('.panel_msg').animate({
-        scrollTop: $(".ultimo").offset().top
-    }, 100);
+    function ultima_msg() {
+        var objDiv = $('.panel_msg');
+        var h = objDiv.get(0).scrollHeight;
+        objDiv.animate({scrollTop: h});
+    }
+
+    ultima_msg();
 
 
     $("#btn-enviar-mensagem").click((event)=>{
@@ -136,6 +140,7 @@
         data : form_data,
         success: function(response) {
             $('#mensagem').val('');
+            ultima_msg();
         },
         error: function (err1,err2,err3) { 
             
@@ -179,8 +184,8 @@
 
                         $('.panel_msg').append($msg);
                     });
-
-                    console.log('teste');
+                    
+                    ultima_msg();
                     
 
                 }
