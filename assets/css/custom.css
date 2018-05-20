@@ -198,6 +198,9 @@ hr {
 .raleway-bold {
     font-family: "Raleway Bold";
 }
+.raleway-medium {
+    font-family: "Raleway Medium";
+}
 
 #sobre-mim {
     border: 1px solid #b2bec3;
@@ -290,4 +293,12 @@ td.clique a {
     width: 20%;
     display: inline-block !important;
     /*padding-top: 1px;*/
+}
+
+#btn-enviar-mensagem{
+    padding-left: 90px;
+    padding-right: 90px;
+}
+#img-detalhe-compra{
+    max-width: 112px;
 }

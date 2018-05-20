@@ -52,14 +52,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$route['default_controller'] = 'exemplo_c';
 $route['default_controller'] = 'home_c';
 $route['login'] = 'login_c';
+
+//rotas usuario
 $route['cadastro'] = 'usuario_c/criar';
 $route['perfil/(:num)'] = 'usuario_c/visualizar_perfil/$1';
+$route['editar'] = 'usuario_c/editar';
+
+//rotas anuncio
 $route['meusanuncios'] = 'anuncio_c/meus_anuncios/';
 $route['editaranuncio'] = 'anuncio_c/editar_anuncio/';
 $route['cadastraranuncio'] = 'anuncio_c/cadastrar_anuncio/';
 $route['buscaranuncio'] = 'anuncio_c/buscar_anuncio/';
 $route['visualizaranuncio'] = 'anuncio_c/visualizar_anuncio/';
-$route['editar'] = 'usuario_c/editar';
+
+//rotas transacao
+$route['minhas-compras'] = 'transacao_c';
 
 $route['carrinho'] = 'carrinho_c';
 $route['404_override'] = '';
