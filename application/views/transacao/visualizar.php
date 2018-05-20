@@ -74,7 +74,7 @@
                         <div class="col-sm-6 col-sm-offset-6">
                             <div class="panel panel-success">
                                 <div class="panel-heading text-right">
-                                    <span class="raleway-bold"><?= $mensagem->usuario->nome ?> em <?= formatar_datetime($mensagem->data_hora) ?></span>
+                                    <span class="raleway-bold">Você em <?= formatar_datetime($mensagem->data_hora) ?></span>
                                 </div>
                                 <div class="panel-body">
                                     <p class="text-justify raleway-medium">
