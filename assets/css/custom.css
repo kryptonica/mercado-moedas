@@ -296,8 +296,8 @@ td.clique a {
 }
 
 #btn-enviar-mensagem{
-    padding-left: 90px;
-    padding-right: 90px;
+    padding-left: 42px;
+    padding-right: 42px;
 }
 #img-detalhe-compra{
     max-width: 112px;
@@ -305,5 +305,5 @@ td.clique a {
 
 .panel_msg{
     height: 500px;
-    overflow: scroll;
+    overflow: auto;
 }

@@ -28,5 +28,25 @@ class Transacao extends MY_Model {
 
         return $transacoes;
     }
+
+    public function buscar_etapa($id)
+    {
+        $this->db->select('*');
+        $this->db->from('etapa_transacao');
+        $this->db->where('id_transacao', $id);
+        $query = $this->db->get()->result();
+        return $query;
+    }
+
+    public function inserir_etapa($id)
+    {
+        $dado = array(
+            'id_transacao' => $id,
+            'datahora' => date("Y-m-d H:i:s"),
+            'etapa' => 1,
+            'status' => 0
+        ); 
+        $this->db->insert('etapa_transacao',$dado);
+    }
     
 }

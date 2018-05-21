@@ -24,6 +24,7 @@ class Transacao_c extends MY_Controller {
 
     public function visualizar($transacao_id) {
         $dados["transacao"] = $this->transacao->buscar_com_relacoes(["where" => ["id" => $transacao_id]])[0];
+        $dados["etapa"] = $this->transacao->buscar_etapa($transacao_id);
         $this->carregar_pagina("transacao/visualizar", $dados);
     }
 
@@ -53,17 +54,27 @@ class Transacao_c extends MY_Controller {
     public function adicionar_mensagem($transacao_id) {
         $this->load->model("mensagem");
         $mensagem = $this->input->post("mensagem");
-        $this->mensagem->inserir(["id_usuario" => $this->session->usuario_id, "mensagem" => $mensagem, "id_transacao" => $transacao_id, "data_hora" => date("Y-m-d H:i:s")]);
-        //redirect("transacao/visualizar/$transacao_id#enviar-mensagem");
+        $confirmacao = $this->input->post("confirmacao");
+        $this->mensagem->inserir(["tipo"=>$confirmacao,"id_usuario" => $this->session->usuario_id, "mensagem" => $mensagem, "id_transacao" => $transacao_id, "data_hora" => date("Y-m-d H:i:s"), "tipo"=>0]);
     }
 
     public function aceitar($transacao_id) {
         $this->transacao->atualizar($transacao_id, ["aceita" => 1]);
+        $this->transacao->inserir_etapa($transacao_id);
         adicionar_alerta("success", "Transação aceita! Envie uma mensagem para o comprador.");
         redirect("transacao/visualizar/$transacao_id");
     }
 
     public function checar(){
+
+        $transacao_id =  $this->input->post('id_transacao');
+        $dados['transacao'] = $this->transacao->buscar_com_relacoes( ["where" => ["id" => $transacao_id]] , ["order_by" => 'data_hora'] )[0];
+        $dados['id_usuario'] = $this->session->usuario_id;
+        echo json_encode($dados);
+
+    }
+
+    public function checarEtapa(){
 
         $transacao_id =  $this->input->post('id_transacao');
         $dados['transacao'] = $this->transacao->buscar_com_relacoes( ["where" => ["id" => $transacao_id]] , ["order_by" => 'data_hora'] )[0];

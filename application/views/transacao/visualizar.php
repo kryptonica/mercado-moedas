@@ -85,6 +85,11 @@
                                         <?= $mensagem->mensagem ?>
                                     </p>
                                 </div>
+                                <?php if($mensagem->tipo == 1){ ?>
+
+                                    <div class="panel-footer"> <button disabled type="button" class="btn btn-danger "><span class="fa fa-times-circle"></span> Rejeitar </button> <button disabled type="button" class="btn btn-success"><span class="fa fa-check-circle"></span> Confirmar </button> </div>
+
+                                <?php } ?>
                             </div>
                         </div>
                     <?php else: ?>
@@ -98,19 +103,37 @@
                                         <?= $mensagem->mensagem ?>
                                     </p>
                                 </div>
+                                <?php if($mensagem->tipo == 1) {?>
+
+                                    <div class="panel-footer"> <button  type="button" class="btn_rejeitar_dado btn btn-danger <?php echo "rejeitar-".$etapa[0]->etapa ?>"><span class="fa fa-times-circle"></span> Rejeitar </button> <button  type="button" class="btn_aceitar_dado btn btn-success <?php echo "aceitar-".$etapa[0]->etapa ?>"><span class="fa fa-check-circle"></span> Confirmar </button> </div>
+
+                                <?php } ?>
                             </div>
                         </div>
                     <?php endif; ?>
                 </div>
-            <?php endforeach; ?>
+            <?php endforeach; 
+                $array_etapas = array("Confirmar Pagamento", "Confirmar envio","Enviar dados para confirmação de pagamento","Enviar dados para confirmação de envio" );
+                if($transacao->comprador ==  $this->session->usuario_id && $etapa[0]->etapa == 1)
+                    $etapa_atual = $array_etapas[ $etapa[0]->etapa+1 ];
+                else if($transacao->vendedor ==  $this->session->usuario_id && $etapa[0]->etapa == 2)
+                    $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
+                else if($transacao->vendedor ==  $this->session->usuario_id && $etapa[0]->etapa == 1)
+                    $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
+                else if($transacao->comprador ==  $this->session->usuario_id && $etapa[0]->etapa == 2)
+                    $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
+            
+            ?>
             </div>
             <div class="panel-footer">
+                <div class="alert alert-info" role="alert">Etapa Atual: <span class="vl_etapa" etapa="<?php echo $etapa[0]->etapa; ?>"  > <?php echo $etapa_atual ?> </span> </div>
                 <form id="enviar-mensagem" method="post" action="<?= base_url("transacao_c/adicionar_mensagem/" . $transacao->id); ?>">
                     <div class="form-group">
                         <textarea class="form-control" name="mensagem" id="mensagem"  required rows="5"></textarea>
                     </div>
                     <div class="text-center">
                         <button id="btn-enviar-mensagem" type="button" class="btn btn-primary"><span class="fa fa-send"></span> Enviar</button>
+                        <button id="btn-confirmar-etapa" type="button" class="btn btn-success"><span class="fa fa-check-circle"></span> Confirmar Etapa</button>
                     </div>
                 </form>
             </div>
@@ -118,6 +141,7 @@
     </div>
 <?php endif; ?>
 </section>
+
 
 <script>
     function ultima_msg() {
@@ -152,6 +176,30 @@
 
         });
     });
+    
+    $("#btn-confirmar-etapa").click((event)=>{
+        event.preventDefault();
+
+        var form_data = $('#enviar-mensagem').serialize(); //Encode form elements for submission
+
+        $.ajax({
+        url : '<?=base_url()?>index.php/Transacao_c/adicionar_mensagem/'+<?= $transacao->id ?>,
+        type: 'post',
+        data : form_data+ '&confirmacao=' + 1,
+        success: function(response) {
+            $('#mensagem').val('');
+            ultima_msg();
+        },
+        error: function (err1,err2,err3) { 
+            
+            console.log(err1);
+            console.log(err2);
+            console.log(err3);
+            
+        }
+
+        });
+    });
 
     function checarMsg() {
 		$id = $(".header_transacao").attr('id_t');
@@ -161,7 +209,7 @@
 			data: {id_transacao : $id},
 			dataType: "json",
 			success: function (response) {
-				console.log(response);
+
                 mensagens = response.transacao.mensagens;
                 mensagens_html = $('.panel_msg>.panel-body');
 
@@ -171,16 +219,32 @@
                     
                     mensagens.forEach( (mensagem,index) => {
                         $msg = $('<div class="panel-body" msg="'+mensagem.id+'">');
-                        if( mensagem.usuario.id == response.id_usuario ){
-                            
-                            $msg.html('<div class="col-sm-6 col-sm-offset-6"> <div class="panel panel-success"> <div class="panel-heading text-right"> <span class="raleway-bold">Você em '+mensagem.data_hora+'</span> </div> <div class="panel-body"> <p class="text-justify raleway-medium">'+mensagem.mensagem+'</p></div></div> </div>');
+                        console.log(mensagem);
+                        
+                        if(mensagem.tipo == 0){
+
+                            if( mensagem.usuario.id == response.id_usuario ){
+                                
+                                $msg.html('<div class="col-sm-6 col-sm-offset-6"> <div class="panel panel-success"> <div class="panel-heading text-right"> <span class="raleway-bold">Você em '+mensagem.data_hora+'</span> </div> <div class="panel-body"> <p class="text-justify raleway-medium">'+mensagem.mensagem+'</p></div></div> </div>');
+                                
+                            }else{
+                                
+                                $msg.html('<div class="col-sm-6"><div class="panel panel-info"><div class="panel-heading"><span class="raleway-bold">'+ mensagem.usuario.nome+'  em '+mensagem.data_hora+'</span></div><div class="panel-body"> <p class="text-justify raleway-medium">'+mensagem.mensagem+'</p> </div> </div> </div>');
+                                
+                            }
                             
                         }else{
-                            
-                            $msg.html('<div class="col-sm-6"><div class="panel panel-info"><div class="panel-heading"><span class="raleway-bold">'+ mensagem.usuario.nome+'  em '+mensagem.data_hora+'</span></div><div class="panel-body"> <p class="text-justify raleway-medium">'+mensagem.mensagem+'</p> </div> </div> </div>');
-                            
-                        }
 
+                            if( mensagem.usuario.id == response.id_usuario ){
+                                $msg.html('<div class="col-sm-6 col-sm-offset-6"> <div class="panel panel-success"> <div class="panel-heading text-right"> <span class="raleway-bold">Você em '+mensagem.data_hora+'</span> </div> <div class="panel-body"> <p class="text-justify raleway-medium">'+mensagem.mensagem+'</p></div> <div class="panel-footer"> <button disabled type="button" class="btn btn-danger"><span class="fa fa-times-circle"></span> Rejeitar </button> <button disabled type="button" class="btn btn-success"><span class="fa fa-check-circle"></span> Confirmar </button> </div> </div> </div>');
+                                
+                            }else{
+                                
+                                $msg.html('<div class="col-sm-6"><div class="panel panel-info"><div class="panel-heading"><span class="raleway-bold">'+ mensagem.usuario.nome+'  em '+mensagem.data_hora+'</span></div><div class="panel-body"> <p class="text-justify raleway-medium">'+mensagem.mensagem+'</p> </div>  <div class="panel-footer"> <button type="button" class="btn_rejeitar_dado btn btn-danger "><span class="fa fa-times-circle"></span> Rejeitar </button> <button type="button" class="btn_aceitar_dado btn btn-success"><span class="fa fa-check-circle"></span> Confirmar </button> </div>  </div> </div>');
+                                
+                            }
+
+                        }
 
                         $('.panel_msg').append($msg);
                     });
