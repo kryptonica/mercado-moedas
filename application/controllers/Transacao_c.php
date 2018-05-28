@@ -55,7 +55,8 @@ class Transacao_c extends MY_Controller {
         $this->load->model("mensagem");
         $mensagem = $this->input->post("mensagem");
         $confirmacao = $this->input->post("confirmacao");
-        $this->mensagem->inserir(["tipo"=>$confirmacao,"id_usuario" => $this->session->usuario_id, "mensagem" => $mensagem, "id_transacao" => $transacao_id, "data_hora" => date("Y-m-d H:i:s"), "tipo"=>0]);
+        $confirmacao = isset($confirmacao)?$confirmacao:0;
+        $this->mensagem->inserir(["tipo"=>$confirmacao,"id_usuario" => $this->session->usuario_id, "mensagem" => $mensagem, "id_transacao" => $transacao_id, "data_hora" => date("Y-m-d H:i:s"), "tipo"=>$confirmacao]);
     }
 
     public function aceitar($transacao_id) {
