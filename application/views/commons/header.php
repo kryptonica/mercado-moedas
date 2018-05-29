@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="<?= base_url('assets/css/custom.css') ?>">
         <!-- <link rel="stylesheet" type="text/css" href="//cloud.typography.com/746852/739588/css/fonts.css" /> -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?= base_url('assets/css/timeline.css') ?>">
 
 
         <script	src="<?= base_url('assets/js/jquery-3.2.1.min.js') ?>"></script>

@@ -63,6 +63,7 @@
             </div>
         </div>
     <?php endif; ?>
+    
     <?php if ($transacao->aceita != 0): ?>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -122,19 +123,71 @@
                 <?php endforeach; 
                 $array_etapas = array("Confirmar Pagamento", "Confirmar envio","Enviar dados para confirmação de pagamento","Enviar dados para confirmação de envio" );
                 if($transacao->comprador ==  $this->session->usuario_id && $etapa[0]->etapa == 1)
-                $etapa_atual = $array_etapas[ $etapa[0]->etapa+1 ];
+                    $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
                 else if($transacao->vendedor ==  $this->session->usuario_id && $etapa[0]->etapa == 2)
-                $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
+                    $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
                 else if($transacao->vendedor ==  $this->session->usuario_id && $etapa[0]->etapa == 1)
-                $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
+                    $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
                 else if($transacao->comprador ==  $this->session->usuario_id && $etapa[0]->etapa == 2)
-                $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
+                    $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
                 
                 ?>
             </div>
         </div>
             <div class="panel-footer">
-                <div class="alert alert-info" role="alert">Etapa Atual: <span class="vl_etapa" etapa="<?php echo $etapa[0]->etapa; ?>"  > <?php echo $etapa_atual ?> </span> </div>
+                <!-- <div class="alert alert-info" role="alert">Etapa Atual: <span class="vl_etapa" etapa="<?php echo $etapa[0]->etapa; ?>"  > <?php echo $etapa_atual ?> </span> </div> -->
+                
+                
+                <ul class="timeline timeline-horizontal">
+						<li class="timeline-item">
+							<div class="timeline-badge2 info"><i class="fa ">1</i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">Confirmar Pagamento</h4>
+								</div>
+								<div class="timeline-body">
+									<p>Nessa etapa o vendedor deve aceitar/rejeitar a solicitação de confirmação de pagamento do cliente.</p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-item">
+							<div class="timeline-badge2"><i class="fa ">2</i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">Confirmar transferencia de pedido</h4>
+								</div>
+								<div class="timeline-body">
+									<p>Nessa etapa o cliente deve aceitar/rejeitar a solicitação de confirmação de transferência do vendedor.</p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-item">
+							<div class="timeline-badge2"><i class="fa ">3</i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">Processo de compra finalizado</h4>
+								</div>
+								<div class="timeline-body">
+									<p>Cliente finaliza compra.</p>
+								</div>
+							</div>
+						</li>
+						<li class="timeline-item">
+							<div class="timeline-badge2"><i class="fa ">4</i></div>
+							<div class="timeline-panel">
+								<div class="timeline-heading">
+									<h4 class="timeline-title">Processo de venda finalizado</h4>
+								</div>
+								<div class="timeline-body">
+									<p>Vendedor Finaliza a compra.</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+                
+                
+                
+                
                 <form id="enviar-mensagem" method="post" action="<?= base_url("transacao_c/adicionar_mensagem/" . $transacao->id); ?>">
                     <div class="form-group">
                         <textarea class="form-control" name="mensagem" id="mensagem"  required rows="5"></textarea>
