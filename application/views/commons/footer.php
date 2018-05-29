@@ -31,5 +31,6 @@
     </footer>
     <!--<script	src="</?=base_url('assets/js/ajax.js')?>"></script>-->
     <script	src="<?=base_url('assets/js/custom.js')?>"></script>
+    <script	src="<?=base_url('assets/js/api_notificacoes.js')?>"></script>
   </body>
 </html>

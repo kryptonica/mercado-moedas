@@ -51,6 +51,23 @@
                                             <li><a href="<?= base_url("login_c/logout"); ?>"><span class="fa fa-sign-out"></span> Sair</a></li>
                                         </ul>
                                     </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-bell"></span> (<b class="total_notificacoes">0</b>)</a>
+                                        <ul class="dropdown-menu notify-drop">
+                                            <div class="notify-drop-title">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-6 col-xs-6">Você tem (<b class="total_notificacoes">0</b>) não lidas</div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="" class="rIcon allRead" data-tooltip="tooltip" data-placement="bottom" title="tümü okundu."><i class="fa fa-dot-circle-o"></i></a></div>
+                                                </div>
+                                            </div>
+                                            <div class="drop-content">
+                                                <!--<Notificações aparecerão aqui>-->
+                                            </div>
+                                            <!--                                            <div class="notify-drop-footer text-center">
+                                                                                            <a href=""><i class="fa fa-eye"></i> Tümünü Göster</a>
+                                                                                        </div>-->
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                         <?php else: ?>
