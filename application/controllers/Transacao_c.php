@@ -23,6 +23,8 @@ class Transacao_c extends MY_Controller {
     }
 
     public function visualizar($transacao_id) {
+        $this->load->model('mensagem');
+        $this->mensagem->atualizar_status_mensagens($transacao_id,$this->session->usuario_id);
         $dados["transacao"] = $this->transacao->buscar_com_relacoes(["where" => ["id" => $transacao_id]])[0];
         $dados["etapa"] = $this->transacao->buscar_etapa($transacao_id);
         $this->carregar_pagina("transacao/visualizar", $dados);
@@ -55,7 +57,8 @@ class Transacao_c extends MY_Controller {
         $this->load->model("mensagem");
         $mensagem = $this->input->post("mensagem");
         $confirmacao = $this->input->post("confirmacao");
-        $this->mensagem->inserir(["tipo"=>$confirmacao,"id_usuario" => $this->session->usuario_id, "mensagem" => $mensagem, "id_transacao" => $transacao_id, "data_hora" => date("Y-m-d H:i:s"), "tipo"=>0]);
+        $confirmacao = isset($confirmacao)?$confirmacao:0;
+        $this->mensagem->inserir(["tipo"=>$confirmacao,"id_usuario" => $this->session->usuario_id, "mensagem" => $mensagem, "id_transacao" => $transacao_id, "data_hora" => date("Y-m-d H:i:s"), "tipo"=>$confirmacao]);
     }
 
     public function aceitar($transacao_id) {
@@ -66,8 +69,9 @@ class Transacao_c extends MY_Controller {
     }
 
     public function checar(){
-
         $transacao_id =  $this->input->post('id_transacao');
+        $this->load->model('mensagem');
+        $this->mensagem->atualizar_status_mensagens($transacao_id,$this->session->usuario_id);
         $dados['transacao'] = $this->transacao->buscar_com_relacoes( ["where" => ["id" => $transacao_id]] , ["order_by" => 'data_hora'] )[0];
         $dados['id_usuario'] = $this->session->usuario_id;
         echo json_encode($dados);

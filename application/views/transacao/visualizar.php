@@ -68,12 +68,19 @@
             <div class="panel-heading">
                 <h4 class="raleway-bold">Mensagens</h4>  
             </div>
+
+            <div class="wrap_msg">
             <div class="panel_msg">
             <?php foreach ($transacao->mensagens as $indice => $mensagem):
                 
                 $classe_ultimo = ($indice+1)==sizeof($transacao->mensagens)?"ultimo":"";
                 ?>
-                <div class="<?php echo 'panel-body '.$classe_ultimo ?>" msg=<?= $mensagem->id ?>   >
+                 <?php if($mensagem->tipo == 1){ ?>
+                    <div class="timeline-badge"><i class="fa fa-receipt"></i></div>
+                <?php }else{ ?>
+                    <div class="timeline-badge"><i class="fa fa-envelope"></i></div>
+                <?php } ?>
+                <div class="<?php echo 'panel-body panel-content-msg '.$classe_ultimo ?>" msg=<?= $mensagem->id ?>   >
                     <?php if ($mensagem->usuario->id == $this->session->usuario_id): ?>
                         <div class="col-sm-6 col-sm-offset-6">
                             <div class="panel panel-success">
@@ -112,19 +119,20 @@
                         </div>
                     <?php endif; ?>
                 </div>
-            <?php endforeach; 
+                <?php endforeach; 
                 $array_etapas = array("Confirmar Pagamento", "Confirmar envio","Enviar dados para confirmação de pagamento","Enviar dados para confirmação de envio" );
                 if($transacao->comprador ==  $this->session->usuario_id && $etapa[0]->etapa == 1)
-                    $etapa_atual = $array_etapas[ $etapa[0]->etapa+1 ];
+                $etapa_atual = $array_etapas[ $etapa[0]->etapa+1 ];
                 else if($transacao->vendedor ==  $this->session->usuario_id && $etapa[0]->etapa == 2)
-                    $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
+                $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
                 else if($transacao->vendedor ==  $this->session->usuario_id && $etapa[0]->etapa == 1)
-                    $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
+                $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
                 else if($transacao->comprador ==  $this->session->usuario_id && $etapa[0]->etapa == 2)
-                    $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
-            
-            ?>
+                $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
+                
+                ?>
             </div>
+        </div>
             <div class="panel-footer">
                 <div class="alert alert-info" role="alert">Etapa Atual: <span class="vl_etapa" etapa="<?php echo $etapa[0]->etapa; ?>"  > <?php echo $etapa_atual ?> </span> </div>
                 <form id="enviar-mensagem" method="post" action="<?= base_url("transacao_c/adicionar_mensagem/" . $transacao->id); ?>">
@@ -145,7 +153,7 @@
 
 <script>
     function ultima_msg() {
-        var objDiv = $('.panel_msg');
+        var objDiv = $('.wrap_msg');
         var h = objDiv.get(0).scrollHeight;
         objDiv.animate({scrollTop: h});
     }
@@ -212,17 +220,19 @@
 
                 mensagens = response.transacao.mensagens;
                 mensagens_html = $('.panel_msg>.panel-body');
+                badges = $('.panel_msg>.timeline-badge');
 
                 if( mensagens_html.length != mensagens.length ){
                     mensagens_html.remove();
+                    badges.remove();
                     
                     
                     mensagens.forEach( (mensagem,index) => {
                         $msg = $('<div class="panel-body" msg="'+mensagem.id+'">');
                         console.log(mensagem);
-                        
+                        $badge = $('<div class="timeline-badge">');
                         if(mensagem.tipo == 0){
-
+                            $badge.append( $('<i class="fa fa-envelope">') );
                             if( mensagem.usuario.id == response.id_usuario ){
                                 
                                 $msg.html('<div class="col-sm-6 col-sm-offset-6"> <div class="panel panel-success"> <div class="panel-heading text-right"> <span class="raleway-bold">Você em '+mensagem.data_hora+'</span> </div> <div class="panel-body"> <p class="text-justify raleway-medium">'+mensagem.mensagem+'</p></div></div> </div>');
@@ -234,7 +244,7 @@
                             }
                             
                         }else{
-
+                            $badge.append( $('<i class="fa fa-receipt">') );
                             if( mensagem.usuario.id == response.id_usuario ){
                                 $msg.html('<div class="col-sm-6 col-sm-offset-6"> <div class="panel panel-success"> <div class="panel-heading text-right"> <span class="raleway-bold">Você em '+mensagem.data_hora+'</span> </div> <div class="panel-body"> <p class="text-justify raleway-medium">'+mensagem.mensagem+'</p></div> <div class="panel-footer"> <button disabled type="button" class="btn btn-danger"><span class="fa fa-times-circle"></span> Rejeitar </button> <button disabled type="button" class="btn btn-success"><span class="fa fa-check-circle"></span> Confirmar </button> </div> </div> </div>');
                                 
@@ -245,7 +255,7 @@
                             }
 
                         }
-
+                        $('.panel_msg').append($badge);
                         $('.panel_msg').append($msg);
                     });
                     

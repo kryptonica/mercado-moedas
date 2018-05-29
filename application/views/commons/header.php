@@ -10,7 +10,9 @@
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/css/custom.css') ?>">
         <!-- <link rel="stylesheet" type="text/css" href="//cloud.typography.com/746852/739588/css/fonts.css" /> -->
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+
         <script	src="<?= base_url('assets/js/jquery-3.2.1.min.js') ?>"></script>
         <script	src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
     </head>
@@ -35,7 +37,7 @@
                             <div class="navbar-right">
                                 <!--<span class="fa fa-user-circle" style="font-size: 30px;    padding:  10px;"></span>-->
                                 <ul class="nav navbar-nav">
-                                    <li><a href="<?= base_url("buscaranuncio?tudo=true"); ?>"><span class="fa fa-bitcoin"></span> Ultimos Anuncios</a></li>
+                                    <li><a href="<?= base_url("buscaranuncio?tudo=true"); ?>"><span class="fab fa-bitcoin"></span> Ultimos Anuncios</a></li>
                                     <li><a href="<?= base_url("carrinho"); ?>"><span class="fa fa-shopping-cart"></span> Carrinho (<?= quantidade_carrinho() ?>) </a></li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user-circle"></span> <?= $this->session->nome ?><span class="fa fa-chevron-down"></span></a>
@@ -49,26 +51,20 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-bell"></span> (<b>2</b>)</a>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-bell"></span> (<b class="total_notificacoes">0</b>)</a>
                                         <ul class="dropdown-menu notify-drop">
                                             <div class="notify-drop-title">
                                                 <div class="row">
-                                                    <div class="col-md-6 col-sm-6 col-xs-6">Notificações (<b>2</b>)</div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-6">Você tem (<b class="total_notificacoes">0</b>) não lidas</div>
                                                     <div class="col-md-6 col-sm-6 col-xs-6 text-right"><a href="" class="rIcon allRead" data-tooltip="tooltip" data-placement="bottom" title="tümü okundu."><i class="fa fa-dot-circle-o"></i></a></div>
                                                 </div>
                                             </div>
                                             <div class="drop-content">
-                                                <li>
-                                                    <div class="col-md-3 col-sm-3 col-xs-3"><div class="notify-img"><img src="http://placehold.it/45x45" alt=""></div></div>
-                                                    <div class="col-md-9 col-sm-9 col-xs-9 pd-l0"><a href="">Ahmet</a> yorumladı. <a href="">Çicek bahçeleri...</a> <a href="" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
-                                                        <p>Lorem ipsum sit dolor amet consilium.</p>
-                                                        <p class="time">1 Saat önce</p>
-                                                    </div>
-                                                </li>
+                                                <!--<Notificações aparecerão aqui>-->
                                             </div>
-<!--                                            <div class="notify-drop-footer text-center">
-                                                <a href=""><i class="fa fa-eye"></i> Tümünü Göster</a>
-                                            </div>-->
+                                            <!--                                            <div class="notify-drop-footer text-center">
+                                                                                            <a href=""><i class="fa fa-eye"></i> Tümünü Göster</a>
+                                                                                        </div>-->
                                         </ul>
                                     </li>
                                 </ul>
