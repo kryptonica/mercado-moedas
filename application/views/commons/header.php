@@ -10,7 +10,9 @@
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/css/custom.css') ?>">
         <!-- <link rel="stylesheet" type="text/css" href="//cloud.typography.com/746852/739588/css/fonts.css" /> -->
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+
         <script	src="<?= base_url('assets/js/jquery-3.2.1.min.js') ?>"></script>
         <script	src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
     </head>
@@ -35,7 +37,7 @@
                             <div class="navbar-right">
                                 <!--<span class="fa fa-user-circle" style="font-size: 30px;    padding:  10px;"></span>-->
                                 <ul class="nav navbar-nav">
-                                    <li><a href="<?= base_url("buscaranuncio?tudo=true"); ?>"><span class="fa fa-bitcoin"></span> Ultimos Anuncios</a></li>
+                                    <li><a href="<?= base_url("buscaranuncio?tudo=true"); ?>"><span class="fab fa-bitcoin"></span> Ultimos Anuncios</a></li>
                                     <li><a href="<?= base_url("carrinho"); ?>"><span class="fa fa-shopping-cart"></span> Carrinho (<?= quantidade_carrinho() ?>) </a></li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user-circle"></span> <?= $this->session->nome ?><span class="fa fa-chevron-down"></span></a>
