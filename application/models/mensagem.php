@@ -26,4 +26,10 @@ class Mensagem extends MY_Model {
         return $mensagens;
     }
     
+    public function atualizar_status_mensagens($transacao_id, $usuario_id){
+        $this->db->where('id_usuario !=', $usuario_id);
+        $this->db->where('id_transacao ', $transacao_id);
+        return $this->db->update($this->tabela, ["visualizada" => 1]);
+    }
+    
 }
