@@ -6,7 +6,7 @@ class Transacao extends MY_Model {
         parent::__construct();
         $this->tabela = 'transacao';
         $this->ordenacao = [
-            'id' => 'asc',
+            'data_hora' => 'desc',
         ];
     }
     

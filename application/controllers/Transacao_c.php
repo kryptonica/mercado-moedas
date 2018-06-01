@@ -23,10 +23,18 @@ class Transacao_c extends MY_Controller {
     }
 
     public function visualizar($transacao_id) {
+        $this->load->model('transacao_visualizada');
         $this->load->model('mensagem');
         $this->mensagem->atualizar_status_mensagens($transacao_id,$this->session->usuario_id);
         $dados["transacao"] = $this->transacao->buscar_com_relacoes(["where" => ["id" => $transacao_id]])[0];
         $dados["etapa"] = $this->transacao->buscar_etapa($transacao_id);
+        
+        if($dados["transacao"]->comprador == $this->session->usuario_id && $dados["transacao"]->aceita == 1 ){
+            $this->transacao_visualizada->inserir(["id_transacao" => $transacao_id,"id_usuario" => $this->session->usuario_id]);
+        }
+        if($dados["transacao"]->vendedor == $this->session->usuario_id){
+            $this->transacao_visualizada->inserir(["id_transacao" => $transacao_id,"id_usuario" => $this->session->usuario_id]);
+        }
         $this->carregar_pagina("transacao/visualizar", $dados);
     }
 
