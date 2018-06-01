@@ -192,7 +192,7 @@
 			<ul class="timeline timeline-horizontal">
 				<li class="timeline-item">
 					<div class="timeline-badge2 info etapa1">
-						<i class="fa ">1</i>
+						<i class=" ">1</i>
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -205,7 +205,7 @@
 				</li>
 				<li class="timeline-item">
 					<div class="timeline-badge2 etapa2">
-						<i class="fa ">2</i>
+						<i class=" ">2</i>
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -218,7 +218,7 @@
 				</li>
 				<li class="timeline-item">
 					<div class="timeline-badge2 etapa3">
-						<i class="fa ">3</i>
+						<i class=" ">3</i>
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -231,7 +231,7 @@
 				</li>
 				<li class="timeline-item">
 					<div class="timeline-badge2 etapa4">
-						<i class="fa ">4</i>
+						<i class=" ">4</i>
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
@@ -275,5 +275,7 @@
 
 <script> 
 	
+	transacao_id = "<?= $transacao->id ?>";
+	etapa_atual = <?php echo $etapa[0]->etapa; ?>;
 
 </script>
