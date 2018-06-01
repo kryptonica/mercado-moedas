@@ -18,7 +18,11 @@
         <script	src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
     </head>
     <body>
-        <input id="base-url" type="hidden" val="<?= base_url(); ?>">
+        <script>
+            
+    $base_url = <?php echo "'".base_url()."'"; ?>;
+    
+        </script>
         <header>
             <nav class="navbar navbar-default">
                 <div class="container">
@@ -48,7 +52,7 @@
                                             <li><a href="<?= base_url("minhas-compras"); ?>"><span class="fa fa-shopping-bag"></span> Minhas compras</a></li>
                                             <li><a href="<?= base_url("minhas-vendas"); ?>"><span class="fa fa-tag"></span> Minhas vendas</a></li>
                                             <li><a href="<?= base_url("editar"); ?>"><span class="fa fa-cog"></span> Editar perfil</a></li>
-                                            <li><a href="<?= base_url("login_c/logout"); ?>"><span class="fa fa-sign-out"></span> Sair</a></li>
+                                            <li><a href="<?= base_url("login_c/logout"); ?>"><span class="fa fa-sign-out-alt"></span> Sair</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown">
@@ -74,7 +78,7 @@
                             <div class="navbar-right">
                                 <ul class="nav navbar-nav">
                                     <li class="<?= ocultar(["usuario_c"]) ?>"><a href="<?= base_url("cadastro"); ?>"><span class="fa fa-user-plus"></span> Cadastre-se</a></li>
-                                    <li class="<?= ocultar(["login_c"]) ?>"><a href="<?= base_url("login"); ?>"><span class="fa fa-sign-in"></span> Entre</a></li>
+                                    <li class="<?= ocultar(["login_c"]) ?>"><a href="<?= base_url("login"); ?>"><span class="fa fa-sign-in-alt"></span> Entre</a></li>
                                 </ul>
                             </div>
                         <?php endif; ?>

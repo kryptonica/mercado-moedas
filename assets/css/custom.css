@@ -472,3 +472,12 @@ td.clique a {
     margin-left: 15px;
 }*/
 /*fim Css Area de notificações*/
+
+
+.badge-danger{
+    background-color: #d9534f !important;
+}
+
+.badge-success{
+    background-color: #4cae4c !important;
+}

@@ -1,13 +1,14 @@
 $(document).ready(function () {
     get_notificacoes();//carrega as notificações no primeiro load na pagina
-    setInterval(get_notificacoes, 40000);//depois fica verficando de tempos em tempos se tem coisa nova
+    var $notificacoes_async = setInterval(get_notificacoes, 40000);//depois fica verficando de tempos em tempos se tem coisa nova
 });
 
 function get_notificacoes() {
     $dropdown_notificacoes = $(".drop-content");
     $dropdown_notificacoes.html("");
+    
     $.ajax({
-        url: $("#base-url").val() + 'notificacao_c/get_notificacoes',
+        url: $base_url + 'notificacao_c/get_notificacoes',
         type: "GET",
         dataType: "json",
         success: function (result) {

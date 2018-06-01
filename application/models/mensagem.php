@@ -31,5 +31,6 @@ class Mensagem extends MY_Model {
         $this->db->where('id_transacao ', $transacao_id);
         return $this->db->update($this->tabela, ["visualizada" => 1]);
     }
+
     
 }
