@@ -255,7 +255,6 @@
                         $impar = $etapa[0]->etapa%2;
                         $comprador = $transacao->comprador == $this->session->usuario_id;
                         $vendedor = $transacao->vendedor == $this->session->usuario_id;
-                        var_dump($etapa);            
                         $disabled = ($impar&&!$comprador)||(!$impar&&!$vendedor)?"disabled":"";
 
                     ?>

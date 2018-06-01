@@ -2,12 +2,15 @@ $( function(){
 
     checar_etapa(1);
 	function timeline_etapa(width_vl) {
-		width_vl = width_vl + "%";
+        if(width_vl!=0){
 
-		$(".timeline-horizontal").animate({
-			width: width_vl
-		}, 1500);
-
+            width_vl = width_vl + "%";
+            
+            $(".timeline-horizontal").animate({
+                width: width_vl
+            }, 1500);
+            
+        }
 	}
 
 
@@ -95,8 +98,8 @@ $( function(){
 			},
 			dataType: 'json',
 			success: function (response) {
-				console.log("TEste:");
-				console.log(response);
+				//console.log("TEste:");
+				//console.log(response);
 				
 				checarMsg(1);
 				checar_etapa();
@@ -117,7 +120,7 @@ $( function(){
 	function rejeitar(event) { 
 		event.preventDefault();
 
-		$msg = $(this).parent().parent().parent().parent().attr('msg');
+		$msg = $(event.currentTarget).parent().parent().parent().parent().attr('msg');
 		console.log('ID:'+$msg);
 		$.ajax({
 			url: $base_url+'index.php/Transacao_c/confirmar_mensagem/' + transacao_id,
@@ -153,10 +156,15 @@ $( function(){
 			},
 			dataType: "json",
 			success: function (response) {
+                //console.log(response);
+                
 				etapa = response.transacao[0].etapa;
-				if(etapa_atual != etapa || $forcado){
+                status = response.transacao[0].status;
+                if(status == -1)
+                    checarMsg(1);
+
+				if(status == -1 || $forcado){
 					etapa_atual = etapa;
-					checarMsg(1);
 					
 					width = 0;
 					if (etapa > 1) {
@@ -167,7 +175,6 @@ $( function(){
 					
 					for (let index = 1; index <= etapa; index++) {
 						
-						$(".etapa" + index).fadeOut(()=>{
 							
 							if (index == etapa)
 							$(".etapa" + index).addClass('info');
@@ -175,11 +182,13 @@ $( function(){
 								$(".etapa" + index).addClass('success');
 								$(".etapa" + index).removeClass('info');
 							}
-							$(".etapa" + index).fadeIn(1000);
-						});
 						
 					}
-					
+                
+                    $.ajax({
+                        type: "get",
+                        url:  $base_url+'index.php/Transacao_c/resetar_status_etapa/'+ transacao_id
+                    });
 				}
 			}
 		});
@@ -232,7 +241,9 @@ $( function(){
 
 						} else {
 							panel = "";
-							disabled = "";
+                            disabled = "";
+                            //console.log("tipo:"+mensagem.tipo);
+                            
 							if (mensagem.tipo == 2) {
 								disabled = "disabled";
 								panel = "success";

@@ -64,6 +64,9 @@ class Transacao_c extends MY_Controller {
     public function adicionar_mensagem($transacao_id) {
         $this->load->model("mensagem");
         $mensagem = $this->input->post("mensagem");
+        if(preg_replace('/\s+/','',$mensagem)==""){
+            return;
+        }
         $confirmacao = $this->input->post("confirmacao");
         $confirmacao = isset($confirmacao)?$confirmacao:0;
         $this->mensagem->inserir(["tipo"=>$confirmacao,"id_usuario" => $this->session->usuario_id, "mensagem" => $mensagem, "id_transacao" => $transacao_id, "data_hora" => date("Y-m-d H:i:s"), "tipo"=>$confirmacao]);
@@ -78,6 +81,10 @@ class Transacao_c extends MY_Controller {
         $dados['confirmacao'] = $this->transacao->atualizar_confirmacao($msg_id, $status);
         echo json_encode($dados);
 
+    }
+
+    public function resetar_status_etapa($transacao_id){
+        $this->transacao->resetar_status_etapa($transacao_id);
     }
 
     public function aceitar($transacao_id) {

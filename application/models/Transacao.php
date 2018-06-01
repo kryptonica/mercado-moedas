@@ -51,12 +51,10 @@ class Transacao extends MY_Model {
 
     public function atualizar_etapa($id, $etapa)
     {
-        if($etapa == -1){
-            $status = $etapa;
-        }else if ($etapa > 4) {
+        if ($etapa > 4) {
             $status = 1;
         }else{
-            $status = 0;
+            $status = -1;
         }
         $dado = array(
             'etapa' => $etapa,
@@ -67,6 +65,16 @@ class Transacao extends MY_Model {
         return $query;
     }
     
+    public function resetar_status_etapa($id)
+    {
+        $dado = array(
+            'status' => 0
+        ); 
+        $this->db->where('id_transacao', $id);
+        $query =  $this->db->update('etapa_transacao',$dado);
+        return $query;
+    }
+
     public function atualizar_confirmacao($id, $status)
     {
         $tipo = 0;
