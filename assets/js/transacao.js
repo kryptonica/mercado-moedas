@@ -1,4 +1,4 @@
-$({
+$( function(){
 
     checar_etapa(1);
 	function timeline_etapa(width_vl) {
@@ -28,7 +28,7 @@ $({
 		var form_data = $('#enviar-mensagem').serialize(); //Encode form elements for submission
 
 		$.ajax({
-			url: '<?=base_url()?>index.php/Transacao_c/adicionar_mensagem/' + <?= $transacao->id ?>,
+			url: $base_url+'index.php/Transacao_c/adicionar_mensagem/' + transacao_id,
 			type: 'post',
 			data: form_data,
 			success: function (response) {
@@ -52,7 +52,7 @@ $({
 		var form_data = $('#enviar-mensagem').serialize(); //Encode form elements for submission
 
 		$.ajax({
-			url: '<?=base_url()?>index.php/Transacao_c/adicionar_mensagem/' + <?= $transacao->id ?>,
+			url: $base_url+'index.php/Transacao_c/adicionar_mensagem/' +transacao_id,
 			type: 'post',
 			data: form_data + '&confirmacao=' + 1,
 			success: function (response) {
@@ -84,15 +84,14 @@ $({
 		event.preventDefault();
 		$msg = $(event.currentTarget).parent().parent().parent().parent().attr('msg');
 		console.log($msg);
-		alert('asdfasdgasdg');
 		
 		$.ajax({
-			url: '<?=base_url()?>index.php/Transacao_c/confirmar_mensagem/' + <?= $transacao->id ?>,
+			url: $base_url+'index.php/Transacao_c/confirmar_mensagem/' +transacao_id,
 			type: 'post',
 			data: {
 				status: 1,
 				msg_id: $msg,
-				etapa: <?php echo $etapa[0]->etapa; ?>
+				etapa: etapa_atual
 			},
 			dataType: 'json',
 			success: function (response) {
@@ -121,12 +120,12 @@ $({
 		$msg = $(this).parent().parent().parent().parent().attr('msg');
 		console.log('ID:'+$msg);
 		$.ajax({
-			url: '<?=base_url()?>index.php/Transacao_c/confirmar_mensagem/' + <?= $transacao->id ?>,
+			url: $base_url+'index.php/Transacao_c/confirmar_mensagem/' + transacao_id,
 			type: 'post',
 			data: {
 				status: 0,
 				msg_id: $msg,
-				etapa: <?php echo $etapa[0]->etapa; ?>
+				etapa: etapa_atual
 			},
 			dataType: 'json',
 			success: function (response) {
@@ -145,13 +144,12 @@ $({
 		});
 	}
 
-	etapa_atual = <?php echo $etapa[0]->etapa ?>;
 	function checar_etapa($forcado) {
 		$.ajax({
 			type: "post",
-			url: '<?=base_url()?>index.php/Transacao_c/checar_etapa',
+			url: $base_url+'index.php/Transacao_c/checar_etapa',
 			data: {
-				id_transacao: <?= $transacao->id ?>
+				id_transacao: transacao_id
 			},
 			dataType: "json",
 			success: function (response) {
@@ -194,7 +192,7 @@ $({
 		$id = $(".header_transacao").attr('id_t');
 		$.ajax({
 			type: "post",
-			url: '<?=base_url()?>index.php/Transacao_c/checar',
+			url: $base_url+'index.php/Transacao_c/checar',
 			data: {
 				id_transacao: $id
 			},
