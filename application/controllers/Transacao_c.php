@@ -74,11 +74,14 @@ class Transacao_c extends MY_Controller {
 
     public function confirmar_mensagem($transacao_id) {
         $status = $this->input->post("status");
+        $tipo = $this->input->post("tipo");
         $etapa = $this->input->post("etapa");
         $msg_id = $this->input->post("msg_id");
-        $etapa = $etapa+$status;
-        $dados['etapa'] = $this->transacao->atualizar_etapa($transacao_id, $etapa);
-        $dados['confirmacao'] = $this->transacao->atualizar_confirmacao($msg_id, $status);
+        if($tipo=="confirmar")
+            $etapa = $etapa+1;
+
+        $dados['etapa'] = $this->transacao->atualizar_etapa($transacao_id, $etapa, $status);
+        $dados['confirmacao'] = $this->transacao->atualizar_confirmacao($msg_id, $tipo);
         echo json_encode($dados);
 
     }
@@ -111,6 +114,16 @@ class Transacao_c extends MY_Controller {
         $dados['id_usuario'] = $this->session->usuario_id;
         echo json_encode($dados);
 
+    }
+
+    public function avaliar($transacao_id)
+    {
+        $descricao =  $this->input->post('descricao_avaliacao');
+        $nota =  $this->input->post('nota_avaliacao');
+        $tipo =  $this->input->post('tipo');
+        $retorno = $this->transacao->finalizar($transacao_id, $descricao, $nota, $tipo);
+        //var_dump($retorno);
+        redirect("transacao/visualizar/$transacao_id");
     }
 
 }

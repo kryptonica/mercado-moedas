@@ -51,7 +51,7 @@
 				</div>
 				<div class="panel-body">
 					<div class="col-sm-3">
-						<img id="img-detalhe-compra" class="img-responsive" src="<?= base_url(" assets/img/cripto_img.png "); ?>">
+						<img id="img-detalhe-compra" class="img-responsive" src="<?= base_url("assets/img/cripto_img.png "); ?>">
 					</div>
 					<div class="col-sm-9">
 						<a href="<?= base_url(" visualizaranuncio?id=" . $transacao->anuncio->id); ?>" class="raleway-bold">
@@ -73,8 +73,7 @@
 		</div>
 	</div>
 	<?php endif; ?>
-
-	<?php if ($transacao->aceita != 0): ?>
+	<?php if ($transacao->aceita != 0 && ( ($etapa[0]->status < 2 && $this->session->usuario_id == $transacao->comprador) || ($etapa[0]->status < 3 && $this->session->usuario_id == $transacao->vendedor) ) ): ?>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h4 class="raleway-bold">Mensagens</h4>
@@ -172,7 +171,7 @@
 				</div>
 				<?php endforeach; 
                 $array_etapas = array("Confirmar Pagamento", "Confirmar envio","Enviar dados para confirmação de pagamento","Enviar dados para confirmação de envio" );
-                #var_dump($etapa);
+               # var_dump($etapa);
                 if($transacao->comprador ==  $this->session->usuario_id && $etapa[0]->etapa == 1)
                     $etapa_atual = $array_etapas[ $etapa[0]->etapa-1 ];
                 else if($transacao->vendedor ==  $this->session->usuario_id && $etapa[0]->etapa == 2)
@@ -188,7 +187,7 @@
 		<div class="panel-footer">
 			<!-- <div class="alert alert-info" role="alert">Etapa Atual: <span class="vl_etapa" etapa="<?php echo $etapa[0]->etapa; ?>"  > <?php echo $etapa_atual ?> </span> </div> -->
 
-
+		<div class="timeline-horizontal-container">						
 			<ul class="timeline timeline-horizontal">
 				<li class="timeline-item">
 					<div class="timeline-badge2 info etapa1">
@@ -225,25 +224,12 @@
 							<h4 class="timeline-title">Processo de compra finalizado</h4>
 						</div>
 						<div class="timeline-body">
-							<p>Cliente finaliza compra.</p>
-						</div>
-					</div>
-				</li>
-				<li class="timeline-item">
-					<div class="timeline-badge2 etapa4">
-						<i class=" ">4</i>
-					</div>
-					<div class="timeline-panel">
-						<div class="timeline-heading">
-							<h4 class="timeline-title">Processo de venda finalizado</h4>
-						</div>
-						<div class="timeline-body">
-							<p>Vendedor Finaliza a compra.</p>
+							<p>Usuário deve finalizar transação e avaliar </p>
 						</div>
 					</div>
 				</li>
 			</ul>
-
+		</div>	
 
 
 
@@ -252,29 +238,47 @@
 					<textarea class="form-control" name="mensagem" id="mensagem" required rows="5"></textarea>
 				</div>
 				<?php 
-                        $impar = $etapa[0]->etapa%2;
                         $comprador = $transacao->comprador == $this->session->usuario_id;
                         $vendedor = $transacao->vendedor == $this->session->usuario_id;
+                        $impar = $etapa[0]->etapa%2;
                         $disabled = ($impar&&!$comprador)||(!$impar&&!$vendedor)?"disabled":"";
 
                     ?>
 				<div class="text-center">
 					<button id="btn-enviar-mensagem" type="button" class="btn btn-primary">
 						<span class="fa fa-send"></span> Enviar</button>
+					<?php if($etapa[0]->etapa!=3){ ?>
 					<button id="btn-confirmar-etapa" <?php echo $disabled; ?> type="button" class="btn btn-success">
 						<span class="fa fa-check-circle"></span> Confirmar Etapa</button>
-				</div>
+							<?php }?>
+					<button id="btn-finalizar" type="button" data-toggle="modal" data-target="#modal-avaliacao" class="btn btn-success">
+						<span class="fa fa-check-circle"></span> Finalizar Transação </button>
+					</div>
 			</form>
 		</div>
 	</div>
 	</div>
+
+	<?php elseif( $transacao->aceita != 0  ): ?>
+
+		<div class="alert alert-warning center">
+			<strong>Transação Finalizada!</strong> 
+		</div>
+
 	<?php endif; ?>
 </section>
+<?php $this->view("transacao/modal_avaliacao"); ?>
 <script	src="<?= base_url('assets/js/transacao.js') ?>"></script>
 
 <script> 
 	
 	transacao_id = "<?= $transacao->id ?>";
 	etapa_atual = <?php echo $etapa[0]->etapa; ?>;
+	status_atual = <?php echo $etapa[0]->status; ?>;
+	$comprador = <?php echo $transacao->comprador; ?>;
+	$vendedor = <?php echo $transacao->vendedor; ?>;
+	$usuario_id = <?php echo $this->session->usuario_id; ?>;
+
+	
 
 </script>

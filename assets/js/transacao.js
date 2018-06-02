@@ -92,7 +92,8 @@ $( function(){
 			url: $base_url+'index.php/Transacao_c/confirmar_mensagem/' +transacao_id,
 			type: 'post',
 			data: {
-				status: 1,
+				tipo:"confirmar",
+				status: status_atual,
 				msg_id: $msg,
 				etapa: etapa_atual
 			},
@@ -126,7 +127,8 @@ $( function(){
 			url: $base_url+'index.php/Transacao_c/confirmar_mensagem/' + transacao_id,
 			type: 'post',
 			data: {
-				status: 0,
+				tipo:"rejeitar",
+				status: status_atual,
 				msg_id: $msg,
 				etapa: etapa_atual
 			},
@@ -157,14 +159,31 @@ $( function(){
 			dataType: "json",
 			success: function (response) {
                 //console.log(response);
-                
-				etapa = response.transacao[0].etapa;
-                status = response.transacao[0].status;
-                if(status == -1)
-                    checarMsg(1);
+				
+				$comprador_b = $comprador == $usuario_id;
+				$vendedor_b = $vendedor == $usuario_id;
 
-				if(status == -1 || $forcado){
-					etapa_atual = etapa;
+				etapa = response.transacao[0].etapa;
+				etapa_atual = etapa;
+				status = response.transacao[0].status;
+				console.log("PQP");
+				
+				
+
+				if(etapa == 3){
+					$('#btn-confirmar-etapa').fadeOut();
+					$('#btn-finalizar').fadeIn();
+				}
+
+				
+				if(status != status_atual){
+					console.log("Status Checar");
+					checarMsg(1);
+				}
+                
+
+				if(status != status_atual || $forcado){
+					status_atual = status;
 					
 					width = 0;
 					if (etapa > 1) {
@@ -184,11 +203,16 @@ $( function(){
 							}
 						
 					}
-                
-                    $.ajax({
-                        type: "get",
-                        url:  $base_url+'index.php/Transacao_c/resetar_status_etapa/'+ transacao_id
-                    });
+				
+					
+					$disabled = (etapa==1&&$vendedor_b)||(etapa==2&&$comprador_b)?true:false;
+					console.log("Etapa: "+etapa+" id_user: "+$usuario_id+" vendedor: "+$vendedor+" comprador: "+$comprador+" vendedorb: "+$vendedor_b+" compradorb: "+$comprador_b+" disabled: "+$disabled);
+
+					$('#btn-confirmar-etapa').attr('disabled', $disabled);
+
+					
+					
+					
 				}
 			}
 		});
@@ -199,6 +223,7 @@ $( function(){
 
 	function checarMsg($forcado) {
 		$id = $(".header_transacao").attr('id_t');
+		
 		$.ajax({
 			type: "post",
 			url: $base_url+'index.php/Transacao_c/checar',
@@ -318,7 +343,7 @@ $( function(){
 	setInterval(() => {
 		checarMsg();
 		checar_etapa();
-	}, 100);
+	}, 500);
 
 
 });
