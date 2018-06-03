@@ -43,10 +43,11 @@
         <div class="panel-footer">
             <div class="clearfix">
                 <?php if (!empty($this->session->carrinho)): ?>
-                    <button class="btn btn-sm btn-primary pull-right"><span class="fa fa-check"></span> Comprar tudo</button>
+                    <button data-toggle="modal" data-target="#modal-confirmar" class="btn btn-sm btn-primary pull-right"><span class="fa fa-check"></span> Comprar tudo</button>
                 <?php endif; ?>
             </div>
         </div>
     </div>
 </section>
 <script src="<?= base_url("assets/js/carrinho.js") ?>"></script>
+<?php $this->view("carrinho/modal_confirmacao");?>
