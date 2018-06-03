@@ -79,8 +79,10 @@ header('Cache-Control: no cache');
 					<div class="thumbnail">
 						<img src="<?= base_url('assets/img/cripto_img.png'); ?>" alt="...">
 						<div class="caption">
-							<h3>
-								<?php echo $anuncios[$i]->titulo ?>
+							<h3 >
+								<div class="max-lines">
+									<?php echo $anuncios[$i]->titulo ?>
+								</div>
 								<span class="label label-warning">
 									<?php echo $moeda_atual; ?> </span>
 							</h3>

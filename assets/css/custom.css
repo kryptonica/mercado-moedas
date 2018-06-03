@@ -485,3 +485,14 @@ td.clique a {
 #btn-finalizar{
     display: none;
 }
+
+.max-lines {
+    display: block; /* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 1.6em;
+    line-height: 1.8em;
+    font-size: 18px;
+    font-weight: bold;
+  }
