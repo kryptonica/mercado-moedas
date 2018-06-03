@@ -2,12 +2,15 @@ $( function(){
 
     checar_etapa(1);
 	function timeline_etapa(width_vl) {
-		width_vl = width_vl + "%";
+        if(width_vl!=0){
 
-		$(".timeline-horizontal").animate({
-			width: width_vl
-		}, 1500);
-
+            width_vl = width_vl + "%";
+            
+            $(".timeline-horizontal").animate({
+                width: width_vl
+            }, 1500);
+            
+        }
 	}
 
 
@@ -89,14 +92,15 @@ $( function(){
 			url: $base_url+'index.php/Transacao_c/confirmar_mensagem/' +transacao_id,
 			type: 'post',
 			data: {
-				status: 1,
+				tipo:"confirmar",
+				status: status_atual,
 				msg_id: $msg,
 				etapa: etapa_atual
 			},
 			dataType: 'json',
 			success: function (response) {
-				console.log("TEste:");
-				console.log(response);
+				//console.log("TEste:");
+				//console.log(response);
 				
 				checarMsg(1);
 				checar_etapa();
@@ -117,13 +121,14 @@ $( function(){
 	function rejeitar(event) { 
 		event.preventDefault();
 
-		$msg = $(this).parent().parent().parent().parent().attr('msg');
+		$msg = $(event.currentTarget).parent().parent().parent().parent().attr('msg');
 		console.log('ID:'+$msg);
 		$.ajax({
 			url: $base_url+'index.php/Transacao_c/confirmar_mensagem/' + transacao_id,
 			type: 'post',
 			data: {
-				status: 0,
+				tipo:"rejeitar",
+				status: status_atual,
 				msg_id: $msg,
 				etapa: etapa_atual
 			},
@@ -153,10 +158,32 @@ $( function(){
 			},
 			dataType: "json",
 			success: function (response) {
+                //console.log(response);
+				
+				$comprador_b = $comprador == $usuario_id;
+				$vendedor_b = $vendedor == $usuario_id;
+
 				etapa = response.transacao[0].etapa;
-				if(etapa_atual != etapa || $forcado){
-					etapa_atual = etapa;
+				etapa_atual = etapa;
+				status = response.transacao[0].status;
+				console.log("PQP");
+				
+				
+
+				if(etapa == 3){
+					$('#btn-confirmar-etapa').fadeOut();
+					$('#btn-finalizar').fadeIn();
+				}
+
+				
+				if(status != status_atual){
+					console.log("Status Checar");
 					checarMsg(1);
+				}
+                
+
+				if(status != status_atual || $forcado){
+					status_atual = status;
 					
 					width = 0;
 					if (etapa > 1) {
@@ -167,7 +194,6 @@ $( function(){
 					
 					for (let index = 1; index <= etapa; index++) {
 						
-						$(".etapa" + index).fadeOut(()=>{
 							
 							if (index == etapa)
 							$(".etapa" + index).addClass('info');
@@ -175,10 +201,17 @@ $( function(){
 								$(".etapa" + index).addClass('success');
 								$(".etapa" + index).removeClass('info');
 							}
-							$(".etapa" + index).fadeIn(1000);
-						});
 						
 					}
+				
+					
+					$disabled = (etapa==1&&$vendedor_b)||(etapa==2&&$comprador_b)?true:false;
+					console.log("Etapa: "+etapa+" id_user: "+$usuario_id+" vendedor: "+$vendedor+" comprador: "+$comprador+" vendedorb: "+$vendedor_b+" compradorb: "+$comprador_b+" disabled: "+$disabled);
+
+					$('#btn-confirmar-etapa').attr('disabled', $disabled);
+
+					
+					
 					
 				}
 			}
@@ -190,6 +223,7 @@ $( function(){
 
 	function checarMsg($forcado) {
 		$id = $(".header_transacao").attr('id_t');
+		
 		$.ajax({
 			type: "post",
 			url: $base_url+'index.php/Transacao_c/checar',
@@ -232,7 +266,9 @@ $( function(){
 
 						} else {
 							panel = "";
-							disabled = "";
+                            disabled = "";
+                            //console.log("tipo:"+mensagem.tipo);
+                            
 							if (mensagem.tipo == 2) {
 								disabled = "disabled";
 								panel = "success";
@@ -307,7 +343,7 @@ $( function(){
 	setInterval(() => {
 		checarMsg();
 		checar_etapa();
-	}, 100);
+	}, 500);
 
 
 });

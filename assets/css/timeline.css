@@ -229,3 +229,7 @@
     z-index: 999999;
 }
 
+.timeline-horizontal-container{
+  display: block !important;
+  margin: auto !important;
+}

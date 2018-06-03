@@ -49,14 +49,12 @@ class Transacao extends MY_Model {
         $this->db->insert('etapa_transacao',$dado);
     }
 
-    public function atualizar_etapa($id, $etapa)
+    public function atualizar_etapa($id, $etapa, $status)
     {
-        if($etapa == -1){
-            $status = $etapa;
-        }else if ($etapa > 4) {
-            $status = 1;
+        if ($etapa > 4) {
+            $status = 2;
         }else{
-            $status = 0;
+            $status = 1-$status;
         }
         $dado = array(
             'etapa' => $etapa,
@@ -67,10 +65,19 @@ class Transacao extends MY_Model {
         return $query;
     }
     
-    public function atualizar_confirmacao($id, $status)
+    public function resetar_status_etapa($id)
     {
-        $tipo = 0;
-        if($status==1){
+        $dado = array(
+            'status' => 0
+        ); 
+        $this->db->where('id_transacao', $id);
+        $query =  $this->db->update('etapa_transacao',$dado);
+        return $query;
+    }
+
+    public function atualizar_confirmacao($id, $tipo)
+    {
+        if($tipo=="confirmar"){
             $tipo = 2;
         }else{
             $tipo = -1;
@@ -83,4 +90,28 @@ class Transacao extends MY_Model {
         return $query;
     }
     
+    public function finalizar($transacao, $descricao, $nota, $tipo)
+    {
+        if($tipo == "comprador"){
+
+            $query = $this->atualizar($transacao, array(  "descricao_vendedor" => $descricao, "nota_vendedor" => $nota  ));
+            $dado = array(
+                'status' => 2
+            ); 
+            $this->db->where('id_transacao', $transacao);
+            $query = $this->db->update('etapa_transacao',$dado);
+        }
+        else if($tipo == "vendedor"){
+            
+            $query = $this->atualizar($transacao, array(  "descricao_comprador" => $descricao, "nota_comprador" => $nota  ));
+            $dado = array(
+                'status' => 3
+            ); 
+            $this->db->where('id_transacao', $transacao);
+            $this->db->update('etapa_transacao',$dado);
+            
+        }
+        return $query;
+    }
+
 }

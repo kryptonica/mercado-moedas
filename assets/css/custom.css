@@ -481,3 +481,7 @@ td.clique a {
 .badge-success{
     background-color: #4cae4c !important;
 }
+
+#btn-finalizar{
+    display: none;
+}

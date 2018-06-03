@@ -35,4 +35,4 @@
         </div>
     </div>
 </section>
-<?php $this->view("transacao/modal_confirmacao");?>
+<?php $this->view("transacao/modal_confirmacao"); ?>
