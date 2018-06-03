@@ -18,7 +18,7 @@
                             <label>Selecione a sua carteira: </label>
                             <select name="carteira_destino" id="carteira_destino" class="form-control">
                                 <?php foreach ($carteiras as $carteira): ?>
-                                    <option value="<?= $carteira->id ?>">Carteira de <?= $carteira->moeda->nome?></option>
+                                    <option value="<?= $carteira->id ?>">Carteira de <?= $carteira->moeda->nome ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -34,3 +34,5 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+<script>
+</script>

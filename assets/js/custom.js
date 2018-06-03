@@ -13,7 +13,9 @@ $(function () {
 
 	});
 
-
+        $("#quantidade-compra").change(function () {
+            $("#quantidade").val($(this).val());
+        });
 	
 	
 
