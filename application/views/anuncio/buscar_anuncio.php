@@ -5,7 +5,7 @@ header('Cache-Control: no cache');
 <section class="container" style="min-height:62.5%;">
 	<div class="row">
 		<div class="col-sm-12">
-			<h2>Busca por "<?php echo $texto; ?>"</h2>
+			<h2><?= $this->lang->line("Busca_por") ?> "<?php echo $texto; ?>"</h2>
 			<hr>
 		</div>
 	</div>
@@ -19,7 +19,7 @@ header('Cache-Control: no cache');
 			</div>
 			<div class="col-sm-3">
 				<div class="form-group">
-					<label for="select_anuncio" class="lb">Classificar por:</label>
+					<label for="select_anuncio" class="lb"><?= $this->lang->line("Classificar_por") ?>:</label>
 					<select class="form-control" id="select_anuncio" name="ordenacao_busca">
 						<option value="maior_data_inicio" <?php echo $ordenacao=="maior_data_inicio" ? "selected": ""; ?> ><?= $this->lang->line("Data_mais_antiga") ?></option>
 						<option value="menor_data_inicio" <?php echo $ordenacao=="menor_data_inicio" ? "selected": ""; ?> ><?= $this->lang->line("Data_mais_recente") ?></option>
@@ -31,7 +31,7 @@ header('Cache-Control: no cache');
 				</div>
 			</div>
 			<div class="col-sm-9">
-					<label for="tipo_moeda" class="lb">Tipo de moeda:</label>
+					<label for="tipo_moeda" class="lb"><?= $this->lang->line("Tipo_de_moeda") ?>:</label>
 				<div class="form-group">
 					<?php
 						foreach ($moedas as $key => $moeda) {

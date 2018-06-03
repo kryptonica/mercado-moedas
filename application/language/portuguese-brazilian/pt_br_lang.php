@@ -75,5 +75,7 @@
             $lang['Perfil_de'] = "Perfil de";
             $lang['Email_verificado'] = "Email verificado";
             $lang['vazio'] = "vazio";
-
+            $lang['vazio'] = "vazio";            
+            $lang['Busca_por'] = "Busca por";
+            $lang['Classificar_por'] = "Classificar por";
 ?>

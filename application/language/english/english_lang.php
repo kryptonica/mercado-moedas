@@ -74,6 +74,8 @@
             $lang['Carteira_de'] = "Wallet - ";
             $lang['Perfil_de'] = "Profile: ";
             $lang['Email_verificado'] = "Email Verified";
-            $lang['vazio'] = "void";
+            $lang['vazio'] = "empty";
+            $lang['Busca_por'] = "Search for";
+            $lang['Classificar_por'] = "Order by";
 
 ?>
