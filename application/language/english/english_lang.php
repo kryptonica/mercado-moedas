@@ -77,6 +77,7 @@
             $lang['MSG_Remover_anuncio'] = "Are you sure you want to remove the ad?";
             $lang['Informacoes_do_vendedor'] = "Seller information";
             $lang['Adicionar_ao_carrinho'] = "Add to cart";
+            $lang['Forma_de_pagamento'] = "Type of payment";
             $lang['Produto'] = "Product";
             $lang['Aceita'] = "Acepted";
             $lang['Aceitar_transacao'] = "Accept Transaction";
