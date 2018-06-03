@@ -45,15 +45,6 @@ header('Cache-Control: no cache');
 					?>
 				</div>
 			</div>
-<<<<<<< HEAD
-			<div class="col-sm-1">
-				<div class="form-group text-center">
-					<button type="submit" class="btn btn-primary btn-md">
-						<span class="fa fa-filter"></span> <?= $this->lang->line("Filtrar") ?> </button>
-				</div>
-			</div>
-=======
->>>>>>> 18374fa73a791dba2f86cc1fb360e7ecb91ba0e5
 		</div>
 	</form>
 
