@@ -25,20 +25,25 @@
             $lang['Voce_tem_('] = "You got (";
             $lang[')_nao_lidas'] = ") not seen";
             //Compra e Anuncio
+            $lang['Voce_em'] = "You at";
+            $lang['em'] = "at";
             $lang["Cadastrar_anuncio"] = 'Register ad';
             $lang["Titulo_tabela"] = 'Title';
             $lang["Preco"] = 'Price';
             $lang["Descricao"] = 'Description';
             $lang["Quantidade"] = 'Amount';
             $lang["Quantidade_disponivel"] = 'Available amount';
+            $lang["Valor_total"] = 'Valor total';
             $lang["Iniciado_em"] = 'Starter in';
             $lang["Tipo_de_moeda"] = 'Coin type';
             $lang["Salvar_alteracoes"] = 'Save changes';
             $lang["Mais_informacoes"] = 'More information';
             $lang["Sobre"] = 'About';
+            $lang["Compra"] = 'Compra';
             $lang["Comprar"] = 'Buy';
             $lang["Comprar_agora"] = 'Buy now';
             $lang["Comprar_tudo"] = 'Buy all';
+            $lang["Resumo_da_compra"] = 'Purchase Summary';
             $lang["total"] = 'Total';
             $lang["Adicionar_carrinho"] = 'Add to cart';
             $lang['Ver_perfil'] = "View profile";
@@ -49,6 +54,11 @@
             $lang['Senha_atual'] = "Current password";
             $lang['Nova_senha'] = "New password";
             $lang['Confirmar'] = "Confirm";
+            $lang['Rejeitar'] = "Rejeitar";
+            $lang['Confirmar_compra'] = "Confirmar compra";
+            $lang['Confirmar_etapa'] = "Confirmar etapa";
+            $lang['Finalizar_transacao'] = "End transaction";
+            $lang['Transacao_finalizada'] = "Transaction completed";
             $lang['Confirmar_compra'] = "Confirm buy";
             $lang['Cancelar'] = "Cancel";
             $lang['Sobre_mim'] = "About me";
@@ -67,7 +77,9 @@
             $lang['MSG_Remover_anuncio'] = "Are you sure you want to remove the ad?";
             $lang['Informacoes_do_vendedor'] = "Seller information";
             $lang['Adicionar_ao_carrinho'] = "Add to cart";
-            $lang['Aceita'] = "Acept";
+            $lang['Produto'] = "Product";
+            $lang['Aceita'] = "Acepted";
+            $lang['Aceitar_transacao'] = "Accept Transaction";
             $lang['Aguardando_aceitacao'] = "Awaiting seller acceptance";
             $lang['De_nota'] = "Rate the transaction";
             $lang['Selecione_carteira'] = "Select your wallet";
@@ -77,5 +89,11 @@
             $lang['vazio'] = "empty";
             $lang['Busca_por'] = "Search for";
             $lang['Classificar_por'] = "Order by";
-
+            $lang['Mensagens'] = "Messages";
+            $lang['Etapa1_titulo'] = "Confirm payment";
+            $lang['Etapa2_titulo'] = "Confirm order transfer";
+            $lang['Etapa3_titulo'] = "Complete purchase process";
+            $lang['Etapa1_descricao'] = "At this step the seller must accept / reject the client's payment confirmation request";
+            $lang['Etapa2_descricao'] = "At this step the customer must accept / reject the seller transfer confirmation request";
+            $lang['Etapa3_descricao'] = "User must finalize transaction and evaluate it";
 ?>

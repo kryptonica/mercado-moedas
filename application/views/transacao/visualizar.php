@@ -1,7 +1,7 @@
 <section class="container colar-rodape">
     <div class="row">
         <div class="col-sm-12">
-            <h2 class="header_transacao" id_t=<?= $transacao->id ?> >Compra nº
+            <h2 class="header_transacao" id_t=<?= $transacao->id ?> ><?= $this->lang->line("Compra") ?> nº
                 <?= $transacao->id ?> -
                 <?= formatar_datetime($transacao->data_hora) ?>
             </h2>
@@ -17,29 +17,29 @@
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="raleway-bold">Resumo da compra</h4>
+                    <h4 class="raleway-bold"><?= $this->lang->line("Resumo_da_compra") ?></h4>
                 </div>
                 <div class="panel-body table-responsive">
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td>Quantidade: </td>
+                                <td><?= $this->lang->line("Quantidade") ?>: </td>
                                 <td><?= $transacao->quantidade ?></td>
                             </tr>
                             <tr>
-                                <td>Valor total: </td>
+                                <td><?= $this->lang->line("Valor_total") ?>: </td>
                                 <td>R$
                                     <?= $transacao->anuncio->preco * $transacao->quantidade ?>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Forma de pagamento:</td>
+                                <td><?= $this->lang->line("Forma_de_pagamento") ?>:</td>
                                 <td>Boleto bancário</td>
                             </tr>
                             <tr>
                                 <td>Status:</td>
                                 <td>
-                                    <?= $transacao->aceita == 1 ? "Aceita" : "Aguardando aceitação do vendedor" ?>
+                                    <?= $transacao->aceita == 1 ? $this->lang->line("Aceita") : $this->lang->line("Aguardando_aceitacao") ?>
                                 </td>
                             </tr>
                         <tbody>
@@ -51,7 +51,7 @@
 		<div class="col-sm-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h4 class="raleway-bold">Produto</h4>
+					<h4 class="raleway-bold"><?= $this->lang->line("Produto") ?></h4>
 				</div>
 				<div class="panel-body">
 					<div class="col-sm-3">
@@ -73,14 +73,14 @@
 	<div class="row">
 		<div class="col-sm-12 text-center">
 			<a class="btn btn-warning" href="<?= base_url("transacao_c/aceitar/" . $transacao->id); ?>">
-				<span class="fa fa-check"></span> Aceitar transação</a>
+				<span class="fa fa-check"></span> <?= $this->lang->line("Aceitar_transacao") ?></a>
 		</div>
 	</div>
 	<?php endif; ?>
 	<?php if ($transacao->aceita != 0 && ( ($etapa[0]->status < 2 && $this->session->usuario_id == $transacao->comprador) || ($etapa[0]->status < 3 && $this->session->usuario_id == $transacao->vendedor) ) ): ?>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h4 class="raleway-bold">Mensagens</h4>
+			<h4 class="raleway-bold"><?= $this->lang->line("Mensagens") ?></h4>
 		</div>
 
             <div class="wrap_msg">
@@ -114,7 +114,7 @@
                                 <div class="col-sm-6 col-sm-offset-6 <?php echo " panel-etapa- " . $etapa[0]->etapa ?>">
                                     <div class="panel panel-<?php echo $tipo_panel; ?>">
                                         <div class="panel-heading text-right">
-                                            <span class="raleway-bold">Você em
+                                            <span class="raleway-bold"><?= $this->lang->line("Voce_em") ?>
             <?= formatar_datetime($mensagem->data_hora) ?>
                                             </span>
                                         </div>
@@ -127,9 +127,9 @@
 
                                             <div class="panel-footer">
                                                 <button disabled type="button" class="btn_rejeitar_dado btn btn-danger ">
-                                                    <span class="fa fa-times-circle"></span> Rejeitar </button>
+                                                    <span class="fa fa-times-circle"></span> <?= $this->lang->line("Rejeitar") ?> </button>
                                                 <button disabled type="button" class="btn btn-success btn_aceitar_dado">
-                                                    <span class="fa fa-check-circle"></span> Confirmar </button>
+                                                    <span class="fa fa-check-circle"></span> <?= $this->lang->line("Confirmar") ?> </button>
                                             </div>
 
             <?php } ?>
@@ -141,7 +141,7 @@
                                     <div class="panel panel-<?php echo $tipo_panel; ?>">
                                         <div class="panel-heading">
                                             <span class="raleway-bold">
-                                                <?= $mensagem->usuario->nome ?> em
+                                                <?= $mensagem->usuario->nome ?> <?= $this->lang->line("em") ?>
             <?= formatar_datetime($mensagem->data_hora) ?>
                                             </span>
                                         </div>
@@ -154,19 +154,19 @@
 
                                             <div class="panel-footer">
                                                 <button type="button" class="btn_rejeitar_dado btn btn-danger">
-                                                    <span class="fa fa-times-circle"></span> Rejeitar </button>
+                                                    <span class="fa fa-times-circle"></span> <?= $this->lang->line("Rejeitar") ?> </button>
                                                 <button type="button" class="btn_aceitar_dado btn btn-success <?php echo " aceitar-
 								" . $etapa[0]->etapa ?>">
-                                                    <span class="fa fa-check-circle"></span> Confirmar </button>
+                                                    <span class="fa fa-check-circle"></span> <?= $this->lang->line("Confirmar") ?> </button>
                                             </div>
 
             <?php } else if ($mensagem->tipo != 0 && $mensagem->tipo != 1) { ?>
 
                                             <div class="panel-footer">
                                                 <button disabled type="button" class="btn btn-danger ">
-                                                    <span class="fa fa-times-circle"></span> Rejeitar </button>
+                                                    <span class="fa fa-times-circle"></span> <?= $this->lang->line("Rejeitar") ?> </button>
                                                 <button disabled type="button" class="btn btn-success">
-                                                    <span class="fa fa-check-circle"></span> Confirmar </button>
+                                                    <span class="fa fa-check-circle"></span> <?= $this->lang->line("Confirmar") ?> </button>
                                             </div>
 
 							<?php }	 ?>
@@ -200,10 +200,10 @@
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4 class="timeline-title">Confirmar Pagamento</h4>
+							<h4 class="timeline-title"><?= $this->lang->line("Etapa1_titulo") ?></h4>
 						</div>
 						<div class="timeline-body">
-							<p>Nessa etapa o vendedor deve aceitar/rejeitar a solicitação de confirmação de pagamento do cliente.</p>
+							<p><?= $this->lang->line("Etapa1_descricao") ?>.</p>
 						</div>
 					</div>
 				</li>
@@ -213,10 +213,10 @@
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4 class="timeline-title">Confirmar transferencia de pedido</h4>
+							<h4 class="timeline-title"><?= $this->lang->line("Etapa2_titulo") ?></h4>
 						</div>
 						<div class="timeline-body">
-							<p>Nessa etapa o cliente deve aceitar/rejeitar a solicitação de confirmação de transferência do vendedor.</p>
+							<p><?= $this->lang->line("Etapa2_descricao") ?>.</p>
 						</div>
 					</div>
 				</li>
@@ -226,10 +226,10 @@
 					</div>
 					<div class="timeline-panel">
 						<div class="timeline-heading">
-							<h4 class="timeline-title">Processo de compra finalizado</h4>
+							<h4 class="timeline-title"><?= $this->lang->line("Etapa3_titulo") ?></h4>
 						</div>
 						<div class="timeline-body">
-							<p>Usuário deve finalizar transação e avaliar </p>
+							<p><?= $this->lang->line("Etapa3_descricao") ?> </p>
 						</div>
 					</div>
 				</li>
@@ -251,13 +251,13 @@
                     ?>
 				<div class="text-center">
 					<button id="btn-enviar-mensagem" type="button" class="btn btn-primary">
-						<span class="fa fa-send"></span> Enviar</button>
+						<span class="fa fa-send"></span> <?= $this->lang->line("Enviar") ?></button>
 					<?php if($etapa[0]->etapa!=3){ ?>
 					<button id="btn-confirmar-etapa" <?php echo $disabled; ?> type="button" class="btn btn-success">
-						<span class="fa fa-check-circle"></span> Confirmar Etapa</button>
+						<span class="fa fa-check-circle"></span> <?= $this->lang->line("Confirmar_etapa") ?></button>
 							<?php }?>
 					<button id="btn-finalizar" type="button" data-toggle="modal" data-target="#modal-avaliacao" class="btn btn-success">
-						<span class="fa fa-check-circle"></span> Finalizar Transação </button>
+						<span class="fa fa-check-circle"></span> <?= $this->lang->line("Finalizar_transacao") ?></button>
 					</div>
 			</form>
 		</div>
@@ -267,10 +267,13 @@
 	<?php elseif( $transacao->aceita != 0  ): ?>
 
 		<div class="alert alert-warning center">
-			<strong>Transação Finalizada!</strong> 
+			<strong><?= $this->lang->line("Transacao_finalizada") ?>!</strong> 
 		</div>
 
-	<?php endif; ?>
+    <?php endif; 
+    
+    $js_lang = json_encode($this->lang->language);
+    ?>
 </section>
 <?php $this->view("transacao/modal_avaliacao"); ?>
 <script	src="<?= base_url('assets/js/transacao.js') ?>"></script>
@@ -282,7 +285,9 @@
 	status_atual = <?php echo $etapa[0]->status; ?>;
 	$comprador = <?php echo $transacao->comprador; ?>;
 	$vendedor = <?php echo $transacao->vendedor; ?>;
-	$usuario_id = <?php echo $this->session->usuario_id; ?>;
+    $usuario_id = <?php echo $this->session->usuario_id; ?>;
+    
+	$lang = <?php echo $js_lang; ?>;
 
 	
 
