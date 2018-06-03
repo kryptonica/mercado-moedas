@@ -1,47 +1,51 @@
 <section class="container colar-rodape">
-	<div class="row">
-		<div class="col-sm-12">
-			<h2 class="header_transacao" id_t=<?= $transacao->id ?> >Compra nº
-				<?= $transacao->id ?> -
-					<?= formatar_datetime($transacao->data_hora) ?>
-			</h2>
-			<hr>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12">
-			<?php $this->view("commons/alertas"); ?>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="raleway-bold">Resumo da compra</h4>
-				</div>
-				<div class="panel-body table-responsive">
-					<table class="table">
-						<tbody>
-							<tr>
-								<td>Valor total: </td>
-								<td>R$
-									<?= $transacao->anuncio->preco * $transacao->quantidade ?>
-								</td>
-							</tr>
-							<tr>
-								<td>Forma de pagamento:</td>
-								<td>Boleto bancário</td>
-							</tr>
-							<tr>
-								<td>Status:</td>
-								<td>
-									<?= $transacao->aceita == 1 ? "Aceita" : "Aguardando aceitação do vendedor" ?>
-								</td>
-							</tr>
-							<tbody>
-					</table>
-				</div>
-			</div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="header_transacao" id_t=<?= $transacao->id ?> >Compra nº
+                <?= $transacao->id ?> -
+                <?= formatar_datetime($transacao->data_hora) ?>
+            </h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <?php $this->view("commons/alertas"); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="raleway-bold">Resumo da compra</h4>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Quantidade: </td>
+                                <td><?= $transacao->quantidade ?></td>
+                            </tr>
+                            <tr>
+                                <td>Valor total: </td>
+                                <td>R$
+                                    <?= $transacao->anuncio->preco * $transacao->quantidade ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Forma de pagamento:</td>
+                                <td>Boleto bancário</td>
+                            </tr>
+                            <tr>
+                                <td>Status:</td>
+                                <td>
+                                    <?= $transacao->aceita == 1 ? "Aceita" : "Aguardando aceitação do vendedor" ?>
+                                </td>
+                            </tr>
+                        <tbody>
+                    </table>
+                </div>
+            </div>
 
 		</div>
 		<div class="col-sm-6">
@@ -79,90 +83,91 @@
 			<h4 class="raleway-bold">Mensagens</h4>
 		</div>
 
-		<div class="wrap_msg">
-			<div class="panel_msg">
-				<?php foreach ($transacao->mensagens as $indice => $mensagem):
-                 $tipo_panel =  $mensagem->tipo==-1?"danger":"info";
-                 $tipo_panel =  $mensagem->tipo==2?"success":$tipo_panel;
-                $classe_ultimo = ($indice+1)==sizeof($transacao->mensagens)?"ultimo":"";
-                ?>
-				<?php if($mensagem->tipo == 1){ ?>
-				<div class="timeline-badge">
-					<i class="fa fa-receipt"></i>
-				</div>
-				<?php }else if($mensagem->tipo == -1){ ?>
-				<div class="timeline-badge badge-danger">
-					<i class="fa fa-times-circle"></i>
-				</div>
-				<?php }else if($mensagem->tipo == 2){ ?>
-				<div class="timeline-badge badge-success">
-					<i class="fa fa-check-circle"></i>
-				</div>
-				<?php }else{ ?>
-				<div class="timeline-badge">
-					<i class="fa fa-envelope"></i>
-				</div>
-				<?php } ?>
-				<div class="<?php echo 'panel-body panel-content-msg '.$classe_ultimo ?>" msg=<?= $mensagem->id ?> >
-					<?php if ($mensagem->usuario->id == $this->session->usuario_id): ?>
+            <div class="wrap_msg">
+                <div class="panel_msg">
+                    <?php
+                    foreach ($transacao->mensagens as $indice => $mensagem):
+                        $tipo_panel = $mensagem->tipo == -1 ? "danger" : "info";
+                        $tipo_panel = $mensagem->tipo == 2 ? "success" : $tipo_panel;
+                        $classe_ultimo = ($indice + 1) == sizeof($transacao->mensagens) ? "ultimo" : "";
+                        ?>
+        <?php if ($mensagem->tipo == 1) { ?>
+                            <div class="timeline-badge">
+                                <i class="fa fa-receipt"></i>
+                            </div>
+        <?php } else if ($mensagem->tipo == -1) { ?>
+                            <div class="timeline-badge badge-danger">
+                                <i class="fa fa-times-circle"></i>
+                            </div>
+        <?php } else if ($mensagem->tipo == 2) { ?>
+                            <div class="timeline-badge badge-success">
+                                <i class="fa fa-check-circle"></i>
+                            </div>
+        <?php } else { ?>
+                            <div class="timeline-badge">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <?php } ?>
+                        <div class="<?php echo 'panel-body panel-content-msg ' . $classe_ultimo ?>" msg=<?= $mensagem->id ?> >
+        <?php if ($mensagem->usuario->id == $this->session->usuario_id): ?>
 
-					<div class="col-sm-6 col-sm-offset-6 <?php echo " panel-etapa- ".$etapa[0]->etapa ?>">
-						<div class="panel panel-<?php echo $tipo_panel; ?>">
-							<div class="panel-heading text-right">
-								<span class="raleway-bold">Você em
-									<?= formatar_datetime($mensagem->data_hora) ?>
-								</span>
-							</div>
-							<div class="panel-body">
-								<p class="text-justify raleway-medium">
-									<?= $mensagem->mensagem ?>
-								</p>
-							</div>
-							<?php if($mensagem->tipo != 0){ ?>
+                                <div class="col-sm-6 col-sm-offset-6 <?php echo " panel-etapa- " . $etapa[0]->etapa ?>">
+                                    <div class="panel panel-<?php echo $tipo_panel; ?>">
+                                        <div class="panel-heading text-right">
+                                            <span class="raleway-bold">Você em
+            <?= formatar_datetime($mensagem->data_hora) ?>
+                                            </span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p class="text-justify raleway-medium">
+            <?= $mensagem->mensagem ?>
+                                            </p>
+                                        </div>
+            <?php if ($mensagem->tipo != 0) { ?>
 
-							<div class="panel-footer">
-								<button disabled type="button" class="btn_rejeitar_dado btn btn-danger ">
-									<span class="fa fa-times-circle"></span> Rejeitar </button>
-								<button disabled type="button" class="btn btn-success btn_aceitar_dado">
-									<span class="fa fa-check-circle"></span> Confirmar </button>
-							</div>
+                                            <div class="panel-footer">
+                                                <button disabled type="button" class="btn_rejeitar_dado btn btn-danger ">
+                                                    <span class="fa fa-times-circle"></span> Rejeitar </button>
+                                                <button disabled type="button" class="btn btn-success btn_aceitar_dado">
+                                                    <span class="fa fa-check-circle"></span> Confirmar </button>
+                                            </div>
 
-							<?php } ?>
+            <?php } ?>
 
-						</div>
-					</div>
-					<?php else: ?>
-					<div class="col-sm-6 <?php echo " panel-etapa- ".$etapa[0]->etapa ?>">
-						<div class="panel panel-<?php echo $tipo_panel; ?>">
-							<div class="panel-heading">
-								<span class="raleway-bold">
-									<?= $mensagem->usuario->nome ?> em
-										<?= formatar_datetime($mensagem->data_hora) ?>
-								</span>
-							</div>
-							<div class="panel-body">
-								<p class="text-justify raleway-medium">
-									<?= $mensagem->mensagem ?>
-								</p>
-							</div>
-							<?php if($mensagem->tipo == 1) {?>
+                                    </div>
+                                </div>
+        <?php else: ?>
+                                <div class="col-sm-6 <?php echo " panel-etapa- " . $etapa[0]->etapa ?>">
+                                    <div class="panel panel-<?php echo $tipo_panel; ?>">
+                                        <div class="panel-heading">
+                                            <span class="raleway-bold">
+                                                <?= $mensagem->usuario->nome ?> em
+            <?= formatar_datetime($mensagem->data_hora) ?>
+                                            </span>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p class="text-justify raleway-medium">
+            <?= $mensagem->mensagem ?>
+                                            </p>
+                                        </div>
+            <?php if ($mensagem->tipo == 1) { ?>
 
-							<div class="panel-footer">
-								<button type="button" class="btn_rejeitar_dado btn btn-danger">
-									<span class="fa fa-times-circle"></span> Rejeitar </button>
-								<button type="button" class="btn_aceitar_dado btn btn-success <?php echo " aceitar-
-								".$etapa[0]->etapa ?>">
-									<span class="fa fa-check-circle"></span> Confirmar </button>
-							</div>
+                                            <div class="panel-footer">
+                                                <button type="button" class="btn_rejeitar_dado btn btn-danger">
+                                                    <span class="fa fa-times-circle"></span> Rejeitar </button>
+                                                <button type="button" class="btn_aceitar_dado btn btn-success <?php echo " aceitar-
+								" . $etapa[0]->etapa ?>">
+                                                    <span class="fa fa-check-circle"></span> Confirmar </button>
+                                            </div>
 
-							<?php }  else if($mensagem->tipo != 0 && $mensagem->tipo != 1){ ?>
+            <?php } else if ($mensagem->tipo != 0 && $mensagem->tipo != 1) { ?>
 
-							<div class="panel-footer">
-								<button disabled type="button" class="btn btn-danger ">
-									<span class="fa fa-times-circle"></span> Rejeitar </button>
-								<button disabled type="button" class="btn btn-success">
-									<span class="fa fa-check-circle"></span> Confirmar </button>
-							</div>
+                                            <div class="panel-footer">
+                                                <button disabled type="button" class="btn btn-danger ">
+                                                    <span class="fa fa-times-circle"></span> Rejeitar </button>
+                                                <button disabled type="button" class="btn btn-success">
+                                                    <span class="fa fa-check-circle"></span> Confirmar </button>
+                                            </div>
 
 							<?php }	 ?>
 						</div>
