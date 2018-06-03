@@ -262,9 +262,13 @@ td.clique a {
     overflow: hidden;
     word-wrap: break-word;
 }
-
+a.anuncio{
+	text-decoration: none;
+}
+a.anuncio:hover div{
+	background-color: #f4f4f4;
+}
 .descricao_thumb{
-    border: solid #ccc 1px;
     border-radius: 4px;
 }
 
