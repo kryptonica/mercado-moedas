@@ -113,4 +113,12 @@ class Usuario_c extends MY_Controller {
         }
     }
 
+    public function mudar_lingua()
+    {
+        $lang = $this->input->post('lang');
+        $response["lang"] = $lang;
+        $this->session->set_userdata( array("lang"=>$lang) );
+        echo json_encode($response);
+    }
+
 }

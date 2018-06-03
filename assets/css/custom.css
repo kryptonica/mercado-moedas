@@ -496,3 +496,23 @@ td.clique a {
     font-size: 18px;
     font-weight: bold;
   }
+
+.dropdown_lang{
+    position: relative;
+    top: 10px;
+    display: inline-block;
+}
+.dropdown_lang button{
+    color: black !important;
+    background-color: #6dfd9c !important;
+}
+
+.dropdown_lang button:hover{
+    background-color: #62e38c !important;
+    border-color: black;
+}
+
+.dropdown_lang button:focus{
+    background-color: #62e38c !important;
+    border-color: black;
+}

@@ -119,7 +119,7 @@ class Anuncio_c extends MY_Controller {
         if ($this->form_validation->run() === TRUE) {
 
             $resultado = $this->anuncio->inserir($dados);
-            var_dump($resultado);
+            //var_dump($resultado);
             if( is_numeric($resultado) ){
                 
                 adicionar_alerta("success", "Anúncio cadastrado com sucesso!");

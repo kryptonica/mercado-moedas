@@ -11,9 +11,9 @@
                 <table class="table table-bordered table-hover ">
                     <thead class="font-bold">
                         <tr>
-                            <th>Titulo</th>
-                            <th>Data</th>
-                            <th>Status</th>
+                            <th><?= $this->lang->line("Titulo") ?></th>
+                            <th><?= $this->lang->line("Data") ?></th>
+                            <th><?= $this->lang->line("Status") ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,7 +21,7 @@
                         <tr>
                             <td class="clique"><a href="<?= base_url("transacao/visualizar/$transacao->id") ?>"><?= $transacao->anuncio->titulo?></a></td>
                             <td class="clique"><a href="<?= base_url("transacao/visualizar/$transacao->id") ?>"><?= formatar_datetime($transacao->data_hora)?></a></td>
-                            <td class="clique"><a href="<?= base_url("transacao/visualizar/$transacao->id") ?>"><?= $transacao->aceita == 1 ? "Aceita" : "Aguardando aceitação do vendedor"?></a></td>
+                            <td class="clique"><a href="<?= base_url("transacao/visualizar/$transacao->id") ?>"><?= $transacao->aceita == 1 ?  $this->lang->line("Aceita")  :  $this->lang->line("Aguardando_aceitacao") ?></a></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

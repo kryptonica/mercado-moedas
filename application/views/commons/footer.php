@@ -8,7 +8,7 @@
           </div>
           <div class="col-xs-6 col-sm-5">
             <ul>
-              <h3>Mapa do site</h3>
+              <h3><?php echo $this->lang->line('Mapa_do_site'); ?></h3>
               <li><a href="#">Loren ipsum</a></li>
               <li><a href="#">Loren ipsum</a></li>
               <li><a href="#">Loren ipsum</a></li>
@@ -16,7 +16,7 @@
             </ul>
           </div><div class="col-xs-6 col-sm-5">
             <ul>
-              <h3>Contato</h3>
+              <h3><?php echo$this->lang->line('Contato'); ?></h3>
               <li><a href="#">Loren ipsum</a></li>
               <li><a href="#">Loren ipsum</a></li>
               <li><a href="#">Loren ipsum</a></li>

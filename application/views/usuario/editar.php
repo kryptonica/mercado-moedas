@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <!--<button class="btn btn-warning pull-left"><span class="fa fa-arrow-left"></span> Cancelar</button>-->
-                        <button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Salvar alterações</button>
+                        <button type="submit" class="btn btn-success"><span class="fa fa-check"></span> <?= $this->lang->line("Salvar_alteracoes") ?></button>
                     </div>
                 </div>
             </form>

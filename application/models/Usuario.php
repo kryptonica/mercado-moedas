@@ -18,4 +18,5 @@ class Usuario extends MY_Model {
         return $id;
     }
 
+
 }

@@ -1,7 +1,7 @@
 <section class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h2>Perfil de <?= $usuario->nome; ?></h2>
+            <h2><?= $this->lang->line("Perfil_de") ?> <?= $usuario->nome; ?></h2>
             <hr>
         </div>
     </div>
@@ -9,7 +9,7 @@
         <div class="col-sm-6" id="dados-perfil">
             <div class="col-sm-4 text-center">
                 <img class="img-thumbnail" alt="Foto do perfil" src="<?= base_url("assets/img/perfil-default.png") ?>"/>
-                <p class="label label-success">Email verificado</p>
+                <p class="label label-success"><?= $this->lang->line("Email_verificado") ?></p>
             </div>
             <div class="col-sm-8 text-center">
                 <p id="contador-reputacao">(<span class="text-success">+132</span>; <span class="text-danger">-9</span>)</p>
@@ -26,7 +26,7 @@
         </div>
         <div class="col-sm-6">
             <div class="panel panel-default">
-                <h4 class="raleway-bold">Sobre mim</h4>
+                <h4 class="raleway-bold"><?= $this->lang->line("Sobre_mim") ?></h4>
                 <div class="panel-body">
                     <div id="sobre-mim" class="text-justify">
                         <?= $usuario->sobre ?>

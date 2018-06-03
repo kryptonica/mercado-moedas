@@ -19,19 +19,19 @@ header('Cache-Control: no cache');
 			</div>
 			<div class="col-sm-12">
 				<div class="form-group">
-					<label for="select_anuncio" class="lb">Ordenação:</label>
+					<label for="select_anuncio" class="lb"><?= $this->lang->line("Ordenacao") ?>:</label>
 					<select class="form-control" id="select_anuncio" name="ordenacao_busca">
-						<option value="maior_data_inicio" <?php echo $ordenacao=="maior_data_inicio" ? "selected": ""; ?> >Data mais antiga</option>
-						<option value="menor_data_inicio" <?php echo $ordenacao=="menor_data_inicio" ? "selected": ""; ?> >Data mais recente</option>
-						<option value="maior_preco" <?php echo $ordenacao=="maior_preco" ? "selected": ""; ?> >Maior Preço</option>
-						<option value="menor_preco" <?php echo $ordenacao=="menor_preco" ? "selected": ""; ?> >Menor Preço</option>
-						<option value="maior_quantidade" <?php echo $ordenacao=="maior_quantidade" ? "selected": ""; ?> >Maior Quantidade</option>
-						<option value="menor_quantidade" <?php echo $ordenacao=="menor_quantidade" ? "selected": ""; ?> >Menor Quantidade</option>
+						<option value="maior_data_inicio" <?php echo $ordenacao=="maior_data_inicio" ? "selected": ""; ?> ><?= $this->lang->line("Data_mais_antiga") ?></option>
+						<option value="menor_data_inicio" <?php echo $ordenacao=="menor_data_inicio" ? "selected": ""; ?> ><?= $this->lang->line("Data_mais_recente") ?></option>
+						<option value="maior_preco" <?php echo $ordenacao=="maior_preco" ? "selected": ""; ?> ><?= $this->lang->line("Maior_preco") ?></option>
+						<option value="menor_preco" <?php echo $ordenacao=="menor_preco" ? "selected": ""; ?> ><?= $this->lang->line("Menor_preco") ?></option>
+						<option value="maior_quantidade" <?php echo $ordenacao=="maior_quantidade" ? "selected": ""; ?> ><?= $this->lang->line("Maior_quantidade") ?></option>
+						<option value="menor_quantidade" <?php echo $ordenacao=="menor_quantidade" ? "selected": ""; ?> ><?= $this->lang->line("Menor_quantidade") ?></option>
 					</select>
 				</div>
 			</div>
 			<div class="col-sm-12">
-					<label for="tipo_moeda" class="lb">Tipo de moeda:</label>
+					<label for="tipo_moeda" class="lb"><?= $this->lang->line("Tipo_de_moeda")  ?>:</label>
 				<div class="form-group">
 					<?php
 						foreach ($moedas as $key => $moeda) {
@@ -48,7 +48,7 @@ header('Cache-Control: no cache');
 			<div class="col-sm-1">
 				<div class="form-group text-center">
 					<button type="submit" class="btn btn-primary btn-md">
-						<span class="fa fa-filter"></span> Filtrar </button>
+						<span class="fa fa-filter"></span> <?= $this->lang->line("Filtrar") ?> </button>
 				</div>
 			</div>
 		</div>
@@ -90,13 +90,13 @@ header('Cache-Control: no cache');
 								<?php echo $anuncios[$i]->descricao ?>
 							</p>
 							<p>
-								<?php echo 'Preço: R$'.$anuncios[$i]->preco ?>
+								<?php echo $this->lang->line("Preco") .': R$'.$anuncios[$i]->preco ?>
 							</p>
 							<p>
-								<?php echo 'Quantidade: '.$anuncios[$i]->quantidade ?>
+								<?php echo $this->lang->line("Quantidade") .': '.$anuncios[$i]->quantidade ?>
 							</p>
 							<p>
-								<a href="<?= base_url("visualizaranuncio?id=". $anuncios[$i]->id) ?>" class="btn btn-primary" role="button">Mais Informações</a>
+								<a href="<?= base_url("visualizaranuncio?id=". $anuncios[$i]->id) ?>" class="btn btn-primary" role="button"><?= $this->lang->line("Mais_informacoes") ?></a>
 							</p>
 						</div>
 					</div>

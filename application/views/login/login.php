@@ -8,19 +8,19 @@
             <div class="row">
                 <div class="msg-login col-md-6 col-md-offset-3 col-xs-12">
                     <span class="fa fa-user-circle" style="font-size: 60px;    padding:  10px;"></span>
-                    <p>Olá! Para continuar, informe seus dados:</p>
+                    <p><?php echo$this->lang->line('MSG_Login'); ?>:</p>
                 </div>
                 <div class="col-md-4 col-md-offset-4 col-xs-12 form-login">
                     <?php $this->view('commons/alertas'); ?>
                     <form method="post" action="<?= base_url("login_c/autenticar"); ?>">
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+                            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?= $this->lang->line("E-mail") ?>">
                         </div>
                         <div class="form-group">
-                            <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                            <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="<?= $this->lang->line("Senha") ?>">
                         </div>
-                        <button type="submit" class="btn btn-primary">Entrar</button><br>
-                        <a href="<?= base_url("cadastro"); ?>">Criar minha conta</a>
+                        <button type="submit" class="btn btn-primary"><?= $this->lang->line("Entrar") ?></button><br>
+                        <a href="<?= base_url("cadastro"); ?>"><?= $this->lang->line("criar_conta") ?></a>
                     </form>
                     <div>
                     </div>

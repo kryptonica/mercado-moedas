@@ -5,28 +5,28 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Confirmar compra</h4>
+                    <h4 class="modal-title"><?= $this->lang->line("Confirmar_compra") ?></h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <input type="hidden" name="anuncio_id" id="anuncio_id" value="<?= $anuncio->id ?>"/>
                         <div class="col-sm-12 form-group">
-                            <label>Quantidade</label>
+                            <label><?= $this->lang->line("Quantidade") ?></label>
                             <input required type="number" name="quantidade" id="quantidade" class="form-control" value="1"/>
                         </div>
                         <div class="col-sm-12 form-group">
                             <label>Selecione a sua carteira: </label>
                             <select name="carteira_destino" id="carteira_destino" class="form-control">
                                 <?php foreach ($carteiras as $carteira): ?>
-                                    <option value="<?= $carteira->id ?>">Carteira de <?= $carteira->moeda->nome ?></option>
+                                    <option value="<?= $carteira->id ?>"><?= $this->lang->line("Carteira_de") ?> <?= $carteira->moeda->nome ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Comprar</button>
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><?= $this->lang->line("Cancelar") ?></button>
+                    <button type="submit" class="btn btn-primary"><?= $this->lang->line("Comprar") ?></button>
                 </div>
             </form>
         </div>

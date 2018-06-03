@@ -19,6 +19,7 @@ $config['exceptions'] = array(//tudo que um usuario pode acessar quando não est
     'usuario_c' => array(
         'criar',
         'inserir',
+        'mudar_lingua',
     ),
     'home_c' => array(
         'index',

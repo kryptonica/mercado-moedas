@@ -19,10 +19,10 @@
                 <table class="table table-bordered table-hover ">
                     <thead class="font-bold">
                         <tr>
-                            <th>Titulo</th>
-                            <th>Preço</th>
-                            <th>Quantidade</th>
-                            <th>Iniciado em</th>
+                            <th><?= $this->lang->line("Titulo") ?></th>
+                            <th><?= $this->lang->line("Preco") ?></th>
+                            <th><?= $this->lang->line("Quantidade") ?></th>
+                            <th><?= $this->lang->line("Iniciado_em") ?></th>
                         </tr>
                     </thead>
                     <tbody>

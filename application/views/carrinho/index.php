@@ -17,7 +17,7 @@
                     <tbody>
                         <?php if (empty($this->session->carrinho)): ?>
                             <tr>
-                                <td class="text-center">(vazio)</td>
+                                <td class="text-center">(<?= $this->lang->line("vazio") ?>)</td>
                             </tr>
                         <?php else: ?>
                             <?php foreach ($this->session->carrinho as $item): ?>
@@ -35,7 +35,7 @@
             <?php if (isset($total)): ?>
                 <div class="row">
                     <div class="col-sm-12 text-right">
-                        <p id="total" class="td-preco"><span class="raleway-bold">Total: </span><span id="valor-total"> R$<?= $total ?></span></p>
+                        <p id="total" class="td-preco"><span class="raleway-bold"><?= $this->lang->line("total") ?>: </span><span id="valor-total"> R$<?= $total ?></span></p>
                     </div>
                 </div>
             <?php endif; ?>
@@ -43,7 +43,7 @@
         <div class="panel-footer">
             <div class="clearfix">
                 <?php if (!empty($this->session->carrinho)): ?>
-                    <button data-toggle="modal" data-target="#modal-confirmar" class="btn btn-sm btn-primary pull-right"><span class="fa fa-check"></span> Comprar tudo</button>
+                    <button data-toggle="modal" data-target="#modal-confirmar" class="btn btn-sm btn-primary pull-right"><span class="fa fa-check"></span> <?= $this->lang->line("Comprar_tudo") ?></button>
                 <?php endif; ?>
             </div>
         </div>

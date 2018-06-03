@@ -16,7 +16,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Confirmar compra</h4>
+                    <h4 class="modal-title"><?= $this->lang->line("Confirmar_compra") ?></h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -26,7 +26,7 @@
                             <textarea required name="descricao_avaliacao" id="descricao_avaliacao" class="form-control" value="1"></textarea>
                         </div>
                         <div class="col-sm-12 form-group">
-                            <label>Dê nota à transação: </label>
+                            <label><?= $this->lang->line("De_nota") ?></label>
                             <select required name="nota_avaliacao" id="nota_avaliacao" class="form-control">
                                     <option selected disabled value="">Nota</option>
                                     <option value="0">0</option>
