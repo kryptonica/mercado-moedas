@@ -58,6 +58,14 @@ $route['cadastro'] = 'usuario_c/criar';
 $route['perfil/(:num)'] = 'usuario_c/visualizar_perfil/$1';
 $route['editar'] = 'usuario_c/editar';
 
+//rota_teste
+$route['teste_anuncios'] = 'anuncio_teste/teste/';
+$route['teste_carrinho'] = 'carrinho_teste/teste/';
+$route['teste_login'] = 'login_teste/teste/';
+$route['teste_mensagem'] = 'mensagem_teste/teste/';
+$route['teste_notificacao'] = 'notificacao_teste/teste/';
+$route['teste_transacao'] = 'transacao_teste/teste/';
+
 //rotas anuncio
 $route['meusanuncios'] = 'anuncio_c/meus_anuncios/';
 $route['editaranuncio'] = 'anuncio_c/editar_anuncio/';

@@ -1,5 +1,5 @@
 $( function(){
-
+	
     checar_etapa(1);
 	function timeline_etapa(width_vl) {
         if(width_vl!=0){
@@ -250,7 +250,7 @@ $( function(){
 							if (mensagem.usuario.id == response.id_usuario) {
 
 								$msg.html(
-									'<div class="col-sm-6 col-sm-offset-6"> <div class="panel panel-info"> <div class="panel-heading text-right"> <span class="raleway-bold">Você em ' +
+									'<div class="col-sm-6 col-sm-offset-6"> <div class="panel panel-info"> <div class="panel-heading text-right"> <span class="raleway-bold">'+$lang.Voce_em+
 									mensagem.data_hora + '</span> </div> <div class="panel-body"> <p class="text-justify raleway-medium">' +
 									mensagem.mensagem + '</p></div></div> </div>');
 
@@ -258,7 +258,7 @@ $( function(){
 
 								$msg.html(
 									'<div class="col-sm-6"><div class="panel panel-info"><div class="panel-heading"><span class="raleway-bold">' +
-									mensagem.usuario.nome + '  em ' + mensagem.data_hora +
+									mensagem.usuario.nome + $lang.em + mensagem.data_hora +
 									'</span></div><div class="panel-body"> <p class="text-justify raleway-medium">' + mensagem.mensagem +
 									'</p> </div> </div> </div>');
 
@@ -286,20 +286,20 @@ $( function(){
 
 							if (mensagem.usuario.id == response.id_usuario) {
 								$msg.html('<div class="col-sm-6 col-sm-offset-6"> <div class="panel panel-' + panel +
-									'"> <div class="panel-heading text-right"> <span class="raleway-bold">Você em ' + mensagem.data_hora +
+									'"> <div class="panel-heading text-right"> <span class="raleway-bold">'+$lang.Voce_em  + mensagem.data_hora +
 									'</span> </div> <div class="panel-body"> <p class="text-justify raleway-medium">' + mensagem.mensagem +
-									'</p></div> <div class="panel-footer"> <button disabled type="button" class="btn btn-danger"><span class="fa fa-times-circle"></span> Rejeitar </button> <button disabled type="button" class="btn btn-success"><span class="fa fa-check-circle"></span> Confirmar </button> </div> </div> </div>'
+									'</p></div> <div class="panel-footer"> <button disabled type="button" class="btn btn-danger"><span class="fa fa-times-circle"></span> '+$lang.Rejeitar+' </button> <button disabled type="button" class="btn btn-success"><span class="fa fa-check-circle"></span> '+$lang.Confirmar+' </button> </div> </div> </div>'
 								);
 
 							} else {
 
 								$msg.html('<div class="col-sm-6"><div class="panel panel-' + panel +
-									'"><div class="panel-heading"><span class="raleway-bold">' + mensagem.usuario.nome + '  em ' + mensagem.data_hora +
+									'"><div class="panel-heading"><span class="raleway-bold">' + mensagem.usuario.nome + $lang.em + mensagem.data_hora +
 									'</span></div><div class="panel-body"> <p class="text-justify raleway-medium">' + mensagem.mensagem +
 									'</p> </div>  <div class="panel-footer"> <button ' + disabled +
-									' type="button" class="btn_rejeitar_dado btn btn-danger "><span class="fa fa-times-circle"></span> Rejeitar </button> <button ' +
+									' type="button" class="btn_rejeitar_dado btn btn-danger "><span class="fa fa-times-circle"></span> '+$lang.Rejeitar+' </button> <button ' +
 									disabled +
-									' type="button" class="btn_aceitar_dado btn btn-success"><span class="fa fa-check-circle"></span> Confirmar </button> </div>  </div> </div>'
+									' type="button" class="btn_aceitar_dado btn btn-success"><span class="fa fa-check-circle"></span> '+$lang.Confirmar+' </button> </div>  </div> </div>'
 								);
 
 							}

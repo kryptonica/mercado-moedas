@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-
-<?php 
-    if ($this->session->lang == 0) {
-        $this->lang->load('pt_br'); 
-    } else {
-        $this->lang->load('english','english');
-    }
-    
-    ?>
 <html lang="pt-BR">
 
 <head>

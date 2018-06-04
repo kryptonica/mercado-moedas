@@ -8,6 +8,12 @@ class MY_Controller extends CI_Controller {
     }
 
     public function carregar_pagina($pagina, $dados = array()) {
+        if ($this->session->lang == 0) {
+            $this->lang->load('pt_br');
+        } else {
+            $this->lang->load('english', 'english');
+        }
+
         $this->load->view("commons/header", $dados);
         $this->load->view($pagina, $dados);
         $this->load->view("commons/footer");

@@ -46,7 +46,8 @@ class Transacao extends MY_Model {
             'etapa' => 1,
             'status' => 0
         ); 
-        $this->db->insert('etapa_transacao',$dado);
+        $query = $this->db->insert('etapa_transacao',$dado);
+        return $query;
     }
 
     public function atualizar_etapa($id, $etapa, $status)
