@@ -78,18 +78,12 @@
             $lang['MSG_Remover_anuncio'] = "Do you really want to remove the ad?";
             $lang['Informacoes_do_vendedor'] = "Seller information";
             $lang['Adicionar_ao_carrinho'] = "Add to cart";
-<<<<<<< HEAD
-            $lang['Aceita'] = "Acept";
-            $lang['Aguardando_aceitacao'] = "Waiting seller acceptance";
-            $lang['De_nota'] = "Evaluate purchase";
-=======
             $lang['Forma_de_pagamento'] = "Type of payment";
             $lang['Produto'] = "Product";
             $lang['Aceita'] = "Acepted";
             $lang['Aceitar_transacao'] = "Accept Transaction";
             $lang['Aguardando_aceitacao'] = "Awaiting seller acceptance";
             $lang['De_nota'] = "Rate the transaction";
->>>>>>> ab882efacff044e948dbd54b2451955c63a29d69
             $lang['Selecione_carteira'] = "Select your wallet";
             $lang['Carteira_de'] = "Wallet - ";
             $lang['Perfil_de'] = "Profile: ";
@@ -97,10 +91,6 @@
             $lang['vazio'] = "empty";
             $lang['Busca_por'] = "Search for";
             $lang['Classificar_por'] = "Order by";
-<<<<<<< HEAD
-
-?>
-=======
             $lang['Mensagens'] = "Messages";
             $lang['Etapa1_titulo'] = "Confirm payment";
             $lang['Etapa2_titulo'] = "Confirm order transfer";
@@ -109,4 +99,3 @@
             $lang['Etapa2_descricao'] = "At this step the customer must accept / reject the seller transfer confirmation request";
             $lang['Etapa3_descricao'] = "User must finalize transaction and evaluate it";
 ?>
->>>>>>> ab882efacff044e948dbd54b2451955c63a29d69
