@@ -1,7 +1,7 @@
 <?php 
 
             $lang['Titulo'] = "Coin Market";
-            $lang['Entrar'] = "Sing In";
+            $lang['Entrar'] = "Sign In";
             $lang['MSG_Login'] = "Hello! To continue, sign in:";
             $lang['criar_conta'] = "Create my account";
             $lang['Cadastro'] = "Sign up";
