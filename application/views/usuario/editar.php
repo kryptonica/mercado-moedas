@@ -19,19 +19,15 @@
             </div>
             <form id="form-editar" method="post" action="<?= base_url("usuario_c/atualizar"); ?>">
                 <div class="row">
-                    <div class="form-group col-sm-12">
+                    <div class="form-group col-sm-5">
                         <label for="nome" class="lb">Nome: </label>
                         <input required type="text" class="form-control radius-input" name="nome" id="nome" value="<?= $usuario->nome ?>">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-sm-12">
+                    <div class="form-group col-sm-4">
                         <label for="email" class="lb">E-mail: </label>
                         <input required type="email" class="form-control radius-input" name="email" id="email" value="<?= $usuario->email ?>">
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-sm-12">
+                    <div class="form-group col-sm-3">
                         <label for="nascimento" class="lb">Data de nascimento: </label>
                         <input required type="date" class="form-control radius-input" name="nascimento" id="nascimento" value="<?= $usuario->dataNascimento ?>">
                     </div>
@@ -39,7 +35,7 @@
                 <div class="row">
                     <div class="form-group col-sm-12">
                         <label for="sobre" class="lb">Sobre mim: </label>
-                        <textarea class="form-control radius-textarea" name="sobre" id="sobre" rows="5"><?= $usuario->sobre ?></textarea>
+                        <textarea class="form-control radius-textarea" name="sobre" id="sobre" rows="10"><?= $usuario->sobre ?></textarea>
                     </div>
                 </div>
                 <div class="row">

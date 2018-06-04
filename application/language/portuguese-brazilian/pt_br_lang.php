@@ -5,7 +5,7 @@
             $lang['MSG_Login'] = "Olá! Para continuar, informe seus dados:";
             $lang['criar_conta'] = "Criar minha conta";
             $lang['Cadastro'] = "Cadastro";
-            $lang['Nome'] = "Nome";
+            $lang['Nome'] = "Nome Completo";
             $lang['E-mail'] = "E-mail";
             $lang['Senha'] = "Senha";
             $lang['Confirmar_senha'] = "Confirmar Senha";
@@ -26,7 +26,8 @@
             $lang[')_nao_lidas'] = ") não lidas";
             //Compra e Anuncio
             $lang["Cadastrar_anuncio"] = 'Cadastrar anuncio';
-            $lang["Titulo_tabela"] = 'Titulo';
+            $lang["Editar_anuncio"] = 'Editar anúncio';
+            $lang["Titulo_tabela"] = 'Título do Anúncio';
             $lang["Preco"] = 'Preço';
             $lang["Descricao"] = 'Descrição';
             $lang["Quantidade"] = 'Quantidade';

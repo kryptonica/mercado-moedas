@@ -1,3 +1,9 @@
+a, a *{
+	-moz-transition:all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+	-o-transition:all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+	-webkit-transition:all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+	transition:all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
 .dropdown .dropdown-toggle span {
     margin-left: 10px;
 }
@@ -122,7 +128,7 @@ html, body{
 
 .form-login{
     background-color: #FFFFFF;
-    padding: 50px 115px 30px 115px;
+    padding: 50px 60px 30px 60px;
 }
 
 #container-form-cadastro{
@@ -131,12 +137,12 @@ html, body{
     top: 30%;
     left: 50%;
     transform:  translate(-50%,-15%);
-    text-align: center;
+    
 }
 
 .form-cadastro{
     background-color: #FFFFFF;
-    padding: 50px 115px 30px 115px;
+    padding: 50px 60px 30px 60px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -149,7 +155,6 @@ html, body{
 
 #container-form-login input, #container-form-cadastro input{
     border-radius: 35px;
-    margin-bottom: 23px;
 }
 
 #container-form-login button[type=submit], #container-form-cadastro button[type=submit]{
@@ -203,8 +208,7 @@ hr {
 }
 
 #sobre-mim {
-    border: 1px solid #b2bec3;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     min-height: 310px;
 }
 
@@ -519,4 +523,19 @@ a.anuncio:hover div{
 .dropdown_lang button:focus{
     background-color: #62e38c !important;
     border-color: black;
+}
+
+
+.timeline .timeline-item .timeline-badge2 i{
+	position: relative;
+	top: -4px !important;
+	left: -1px !important;
+}
+#titulo-sobre-mim{
+	padding-left: 30px;
+	padding-top: 30px;
+}
+
+.perfil .panel{
+	min-height: 450px;
 }

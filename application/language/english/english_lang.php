@@ -1,7 +1,7 @@
 <?php 
 
             $lang['Titulo'] = "Coin Market";
-            $lang['Entrar'] = "Enter";
+            $lang['Entrar'] = "Sing In";
             $lang['MSG_Login'] = "Hello! To continue, sign in:";
             $lang['criar_conta'] = "Create my account";
             $lang['Cadastro'] = "Sign up";
@@ -25,8 +25,9 @@
             $lang['Voce_tem_('] = "You have (";
             $lang[')_nao_lidas'] = ") unseen";
             //Compra e Anuncio
-            $lang["Cadastrar_anuncio"] = 'Register ad';
-            $lang["Titulo_tabela"] = 'Title';
+			$lang["Cadastrar_anuncio"] = 'Register ad';
+			$lang["Editar_anuncio"] = 'Edit ad';
+            $lang["Titulo_tabela"] = 'Ad title';
             $lang["Preco"] = 'Price';
             $lang["Descricao"] = 'Description';
             $lang["Quantidade"] = 'Amount';

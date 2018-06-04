@@ -58,7 +58,7 @@
 						<img id="img-detalhe-compra" class="img-responsive" src="<?= base_url("assets/img/cripto_img.png "); ?>">
 					</div>
 					<div class="col-sm-9">
-						<a href="<?= base_url(" visualizaranuncio?id=" . $transacao->anuncio->id); ?>" class="raleway-bold">
+						<a href="<?= base_url("visualizaranuncio?id=".$transacao->anuncio->id); ?>" class="raleway-bold">
 							<?= $transacao->anuncio->titulo ?>
 						</a>
 						<p class="text-justify">
@@ -120,7 +120,7 @@
                                         </div>
                                         <div class="panel-body">
                                             <p class="text-justify raleway-medium">
-            <?= $mensagem->mensagem ?>
+            <?= str_replace ("\r\n", "<br>", $mensagem->mensagem ); ?>
                                             </p>
                                         </div>
             <?php if ($mensagem->tipo != 0) { ?>
@@ -147,7 +147,7 @@
                                         </div>
                                         <div class="panel-body">
                                             <p class="text-justify raleway-medium">
-            <?= $mensagem->mensagem ?>
+            <?= str_replace ("\r\n", "<br>", $mensagem->mensagem ); ?>
                                             </p>
                                         </div>
             <?php if ($mensagem->tipo == 1) { ?>
