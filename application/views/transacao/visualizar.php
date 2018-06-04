@@ -58,7 +58,7 @@
 						<img id="img-detalhe-compra" class="img-responsive" src="<?= base_url("assets/img/cripto_img.png "); ?>">
 					</div>
 					<div class="col-sm-9">
-						<a href="<?= base_url(" visualizaranuncio?id=" . $transacao->anuncio->id); ?>" class="raleway-bold">
+						<a href="<?= base_url("visualizaranuncio?id=" . $transacao->anuncio->id); ?>" class="raleway-bold">
 							<?= $transacao->anuncio->titulo ?>
 						</a>
 						<p class="text-justify">
@@ -238,7 +238,7 @@
 
 
 
-			<form id="enviar-mensagem" method="post" action="<?= base_url(" transacao_c/adicionar_mensagem/ " . $transacao->id); ?>">
+			<form id="enviar-mensagem" method="post" action="<?= base_url("transacao_c/adicionar_mensagem/ " . $transacao->id); ?>">
 				<div class="form-group">
 					<textarea class="form-control" name="mensagem" id="mensagem" required rows="5"></textarea>
 				</div>

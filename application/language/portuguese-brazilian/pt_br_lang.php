@@ -25,7 +25,7 @@
             $lang['Voce_tem_('] = "Você tem (";
             $lang[')_nao_lidas'] = ") não lidas";
             //Compra e Anuncio
-            $lang['Voce_em'] = "Você em";
+            $lang['Voce_em'] = "Você em ";
             $lang['em'] = "em";
             $lang["Cadastrar_anuncio"] = 'Cadastrar anuncio';
             $lang["Titulo_tabela"] = 'Titulo';

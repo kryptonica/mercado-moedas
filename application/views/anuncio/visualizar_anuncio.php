@@ -17,11 +17,13 @@
                         <h5><?= $this->lang->line("Quantidade_disponivel") ?>: <span class="font-bold"> <?= $anuncio->quantidade ?></span></h5>
                         <br>
                         <p class="text-justify" style=" word-wrap: break-word;"><?= $anuncio->descricao ?></p>
-                        <form method="post" action="<?= base_url("carrinho_c/inserir/" . $anuncio->id) ?>">
-                            <input type="number" name="quantidade" id="quantidade-compra" class="form-control" value="1">
-                            <a class="btn btn-primary"  data-toggle="modal" data-target="#modal-confirmar"><?= $this->lang->line("Comprar_agora") ?></a>
-                            <button type="submit" class="btn btn-info"><?= $this->lang->line("Adicionar_ao_carrinho") ?></button>
-                        </form>
+                        <?php if ($this->session->usuario_id != $anuncio->usuario->id): ?>
+                            <form method="post" action="<?= base_url("carrinho_c/inserir/" . $anuncio->id) ?>">
+                                <input type="number" name="quantidade" id="quantidade-compra" class="form-control" value="1">
+                                <a class="btn btn-primary"  data-toggle="modal" data-target="#modal-confirmar"><?= $this->lang->line("Comprar_agora") ?></a>
+                                <button type="submit" class="btn btn-info"><?= $this->lang->line("Adicionar_ao_carrinho") ?></button>
+                            </form>
+                        <?php endif; ?>
                         <hr>
                         <h3><?= $this->lang->line("Informacoes_do_vendedor") ?>:</h3>
                         <p class="text-justify"><span class="font-bold"><?= $this->lang->line("Nome") ?>:</span> <?= $anuncio->usuario->nome ?></p>

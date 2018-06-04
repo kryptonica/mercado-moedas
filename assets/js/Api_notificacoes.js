@@ -21,21 +21,21 @@ function get_notificacoes() {
                     switch(this.tipo){
                         case "msg":
                         $dados = '<a href='+this.link+'><div class="col-md-3 col-sm-3 col-xs-3">'+'\
-                        <div class="notify-img"><img src="http://placehold.it/45x45" alt=""></div></div>' +
+                        <div class="notify-img"><img src="'+$base_url + "assets/img/notification.png" +'" alt=""></div></div>' +
                         '<div class="col-md-9 col-sm-9 col-xs-9 pd-l0">Nova mensagem de <b>'+this.usuario+'</b>' +
                         '<p>'+this.msg+'</p>'+
                         '<p class="time">Em '+this.data+' às '+this.hora+'</p></div></a>';
                         break;
                         case "transacao_recebida":
                         $dados = '<a href='+this.link+'><div class="col-md-3 col-sm-3 col-xs-3">'+'\
-                        <div class="notify-img"><img src="http://placehold.it/45x45" alt=""></div></div>' +
+                        <div class="notify-img"><img src="'+$base_url + "assets/img/notification.png" +'" alt=""></div></div>' +
                         '<div class="col-md-9 col-sm-9 col-xs-9 pd-l0">Nova solicitação de transação' +
                         '<p>'+this.anuncio+'</p>'+
                         '<p class="time">Solicitação recebida em '+this.data+' às '+this.hora+'</p></div></a>';
                         break;
                         case "transacao_aceita":
                         $dados = '<a href='+this.link+'><div class="col-md-3 col-sm-3 col-xs-3">'+'\
-                        <div class="notify-img"><img src="http://placehold.it/45x45" alt=""></div></div>' +
+                        <div class="notify-img"><img src="'+$base_url + "assets/img/notification.png" +'" alt=""></div></div>' +
                         '<div class="col-md-9 col-sm-9 col-xs-9 pd-l0">Sua solicitação de transação foi aceita' +
                         '<p>'+this.anuncio+'</p>'+
                         '<p class="time">Solicitação feita em '+this.data+' às '+this.hora+'</p></div></a>';
