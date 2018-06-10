@@ -1,70 +1,64 @@
 ###################
-What is CodeIgniter
+Kriptonica
 ###################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Uma plataforma de comércio de criptomoedas ponto-a-ponto baseada em um sistema 
+de reputação auto-sustentável.
 
 *******************
-Release Information
+Sobre
 *******************
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+Projeto desenvolvido durante a disciplina Desenvolvimento de Software do
+curso de Ciência da Computação da Universidade Estadual do Sudoeste da Bahia -
+UESB.
 
-**************************
-Changelog and New Features
-**************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
 
 *******************
-Server Requirements
+Documentação
 *******************
 
-PHP version 5.6 or newer is recommended.
+- `Artigo <http://git.uesb.br/kryptonica/mercado-moedas/blob/master/docs/artigo.pdf/>`_.
+- `Documento de visão <http://git.uesb.br/kryptonica/mercado-moedas/blob/master/docs/Documento%20de%20Visão.pdf/>`_.
+*******************
+Requisitos
+*******************
 
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+PHP versão 5.6 ou mais recente.
+MySQL 5.6.35
+
+Também deve funcionar no 5.3.7, mas recomendamos fortemente que você NÃO execute
+versões antigas do PHP, por causa da potencial segurança e desempenho
+problemas, bem como recursos ausentes.
 
 ************
-Installation
+Instalação
 ************
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
+- Instale o PHP e o Mysql, recomendamos utilizar o `MAMP <https://www.mamp.info/en/downloads/>`_.
+- Crie um database e importe o arquivo `banco de dados.sql <http://git.uesb.br/kryptonica/mercado-moedas/blob/master/docs/banco%20de%20dados.sql>`_.
+- Configure o arquivo `application/config/database.php <http://git.uesb.br/kryptonica/mercado-moedas/blob/master/application/config/database.php>`_..
 
 *******
-License
+Licença
 *******
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+`MIT <http://git.uesb.br/kryptonica/mercado-moedas/blob/master/license.txt>`_.
 
 *********
-Resources
+Recursos utilizados
 *********
 
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
+-  `MAMP <https://www.mamp.info/en/downloads/>`_
+-  `Codeigniter <https://codeigniter.com>`_
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+*******************
+Autores
+*******************
 
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+- Carlos Hatus Damasceno Borges
+- João Vitor Oliveira Ferraz Silva
+- José Pedro Cavalcante Maioli Menezes
+- Leandro Araújo Gonçalves
+- Matheus Coqueiro Andrade
+- Wali Queiroz Santos
